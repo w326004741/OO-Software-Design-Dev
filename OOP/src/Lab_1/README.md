@@ -50,3 +50,6 @@ Design (using UML class diagrams) and implement (in Java) a data management syst
 * For each item in functional requirements 2 to 5, add example code that demonstrates that these requirements are fulfilled.
 * It's enough to put all this in the `main()` method of the application.
 
+### UML
+![image](https://github.com/w326004741/OO-Software-Design-Dev/blob/master/OOP/src/Lab_1/uml/classes.png)
+
