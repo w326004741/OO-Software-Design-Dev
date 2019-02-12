@@ -6,6 +6,8 @@ import java.util.*;
  * @author Weichen Wang
  * @date 2019/1/28 - 4:18 PM
  * @description: ${description} 系列->季->集书 Series->Season->Episodes
+ * <p>
+ * 该类是 懒汉式单例模式  Lazy Singleton pattern
  */
 public class MediaCatalog {
     /**
@@ -77,6 +79,7 @@ public class MediaCatalog {
         series.addSeason(season);
         // having built the series, add it to the catalog(目录)
         cat.addSeries(series);
+
         /**
          * Now just print the series one by one and watch the magic unfold:
          * - Seasons and episodes come up in the right order despite being added randomly(Season and episodes是自动排序(TreeSet),就算随即添加)
@@ -88,7 +91,6 @@ public class MediaCatalog {
         for (Series s : cat.listSeries()) {
             System.out.println(s);
         }
-
     }
 
     /**
