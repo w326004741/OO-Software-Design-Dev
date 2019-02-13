@@ -1,0 +1,248 @@
+{
+  "countries": [
+    {
+      "id": 1,
+      "name": "Ireland",
+      "cities": [
+        {
+          "id": 101,
+          "name": "Dublin"
+        },
+        {
+          "id": 102,
+          "name": "Galway"
+        },
+        {
+          "id": 103,
+          "name": "Cork"
+        },
+        {
+          "id": 104,
+          "name": "Limerick"
+        }
+      ],
+      "capital": 101
+    },
+    {
+      "id": 2,
+      "name": "United Kingdom",
+      "cities": [
+        {
+          "id": 201,
+          "name": "London"
+        },
+        {
+          "id": 202,
+          "name": "Birmingham"
+        },
+        {
+          "id": 203,
+          "name": "Manchester"
+        }
+      ],
+      "capital": 201
+    },
+    {
+      "id": 3,
+      "name": "United States",
+      "cities": [
+        {
+          "id": 301,
+          "name": "Washington DC"
+        },
+        {
+          "id": 302,
+          "name": "New York City"
+        },
+        {
+          "id": 303,
+          "name": "Los Angeles"
+        }
+      ],
+      "capital": 301
+    },
+    {
+      "id": 4,
+      "name": "Canada",
+      "cities": [
+        {
+          "id": 401,
+          "name": "Ottawa"
+        },
+        {
+          "id": 402,
+          "name": "Toronto"
+        }
+      ],
+      "capital": 401
+    },
+    {
+      "id": 5,
+      "name": "Mexico",
+      "cities": [
+        {
+          "id": 501,
+          "name": "Mexico City"
+        },
+        {
+          "id": 502,
+          "name": "Tijuana"
+        },
+        {
+          "id": 503,
+          "name": "Juárez"
+        },
+        {
+          "id": 504,
+          "name": "Acapulco"
+        }
+      ],
+      "capital": 501
+    },
+    {
+      "id": 6,
+      "name": "Italy",
+      "cities": [
+        {
+          "id": 601,
+          "name": "Rome"
+        },
+        {
+          "id": 602,
+          "name": "Milan"
+        },
+        {
+          "id": 603,
+          "name": "Naples"
+        }
+      ],
+      "capital": 601
+    },
+    {
+      "id": 7,
+      "name": "Austria",
+      "cities": [
+        {
+          "id": 701,
+          "name": "Vienna"
+        },
+        {
+          "id": 702,
+          "name": "Innsbruck"
+        },
+        {
+          "id": 703,
+          "name": "Salzburg"
+        }
+      ],
+      "capital": 701
+    },
+    {
+      "id": 8,
+      "name": "Switzerland",
+      "cities": [
+        {
+          "id": 801,
+          "name": "Bern"
+        },
+        {
+          "id": 802,
+          "name": "Zurich"
+        },
+        {
+          "id": 803,
+          "name": "Lausanne"
+        },
+        {
+          "id": 804,
+          "name": "Lugano"
+        }
+      ],
+      "capital": 801
+    },
+    {
+      "id": 9,
+      "name": "Nigeria",
+      "cities": [
+        {
+          "id": 901,
+          "name": "Lagos"
+        },
+        {
+          "id": 902,
+          "name": "Benin"
+        }
+      ],
+      "capital": 901
+    },
+    {
+      "id": 10,
+      "name": "China",
+      "cities": [
+        {
+          "id": 1001,
+          "name": "Beijing"
+        },
+        {
+          "id": 1002,
+          "name": "Hong Kong"
+        },
+        {
+          "id": 1003,
+          "name": "Macau"
+        }
+      ],
+      "capital": 1001
+    },
+    {
+      "id": 11,
+      "name": "Russia",
+      "cities": [
+        {
+          "id": 1101,
+          "name": "Moscow"
+        },
+        {
+          "id": 1102,
+          "name": "Saint Petersburg"
+        },
+        {
+          "id": 1103,
+          "name": "Novosibirsk"
+        }
+      ],
+      "capital": 1101
+    }
+  ],
+  "bordering": {
+    "1": [2],
+    "2": [1],
+    "3": [4, 5],
+    "4": [3],
+    "5": [4],
+    "6": [7, 8],
+    "7": [6, 8],
+    "8": [6, 7],
+    "9": [],
+    "10": [11],
+    "11": [10]
+  }
+}
+// Sample JSON data for Assignment I (each of you must extend with at least 3 more countries with at least 2 cities in each)
+// 分配I的JSON数据示例（每个人必须至少延伸3个国家/地区，每个国家至少有2个城市）
+//  [ ]: 数组  countries: 数组名
+// countries 数组内包含3个对象 (id, name, cities)
+//"bordering": {
+//"1": [2],
+//"2": [1],
+//"3": [4, 5],
+//"4": [3],
+//"5": [4],
+//"6": [7, 8],
+//"7": [6, 8],
+//"8": [6, 7],
+//"9": [],
+//"10": [11],
+//"11": [10]
+//}
+
