@@ -1,47 +1,77 @@
 package assigenmet1;
 
-import org.json.JSONArray;
-
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
  * @author Weichen Wang
  * @date 2019/2/11 - 3:44 PM
- * @description: ${description}
+ * @description: 再定义外层JSON对象 Countries
  */
 public class Countries {
-
-    private String name;
     private int id;
-    private int capital;
-    private List<String> cities = new ArrayList<String>();
+    private String name;
+    private List<LinkedHashMap<String, Object>> cities; // LinkedHashMaP<> 是有序的HashMap(order HashMap)
+    private List<Cities> citiesList = new ArrayList<Cities>();
+    private Capital capital;   // One Country only one Capital
 
+    public Countries() {
+    }
 
-    public Countries(String name) {
+    public Countries(int id, String name) {
+        this.id = id;
         this.name = name;
     }
 
-    public Countries(String name, int id, int capital) {
-        this.name = name;
+    // getter & setter method
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
         this.id = id;
-        this.capital = capital;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getId() {
-        return id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getCapital() {
+    public List<LinkedHashMap<String, Object>> getCities() {
+        return cities;
+    }
+
+    public void setCities(List<LinkedHashMap<String, Object>> cities) {
+        this.cities = cities;
+    }
+
+    public List<Cities> getCitiesList() {
+        return citiesList;
+    }
+
+    public void setCitiesList(List<Cities> citiesList) {
+        this.citiesList = citiesList;
+    }
+
+    /**
+     * Capital
+     */
+    public Capital getCapital() {
         return capital;
     }
 
-    public List<String> getCities() {
-        return cities;
+    public Capital setCapital(Capital capital) {
+        this.capital = new Capital();
+        return capital;
+    }
+
+    @Override
+    public String toString() {
+        return "Countries{" + "id=" + id + ", name='" + name + '\'' + ", cities=" + cities +
+                ", citiesList=" + citiesList + ", capital=" + capital + '}';
     }
 }
