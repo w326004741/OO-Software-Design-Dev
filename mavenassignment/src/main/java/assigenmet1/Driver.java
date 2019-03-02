@@ -1,25 +1,20 @@
 package assigenmet1;
 
 
-import jdk.nashorn.internal.parser.JSONParser;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-import sun.lwawt.macosx.CImage;
-import sun.plugin.dom.core.CoreConstants;
 
-import java.io.FileReader;
 import java.io.InputStream;
-import java.util.*;
 
 /**
  * @author Weichen Wang
  * @date 2019/2/11 - 3:44 PM
  * @description: ${description}
  */
-public class TestCountriesFromJson {
+public class Driver {
     //  Class called Class 类自己调用自己并初始化 new 对象
-    static TestCountriesFromJson main = new TestCountriesFromJson();
+    static Driver main = new Driver();
 
     public static void JSONArray() {
         /**获取InputStream，拿到JSON文件*/
