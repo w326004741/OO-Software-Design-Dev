@@ -5,8 +5,10 @@ package assigenmet1;
  * @date 2019/2/18 - 2:49 PM
  * @description: ${description}
  */
-public class ByBus implements Transport {
-    public void transportChoice() {
-        System.out.println("Choice Bus");
+public class ByBus implements ITransportBehaviour {
+
+
+    public void transportChoice(Cities c1, Cities c2) {
+        System.out.println("Travel from " + c1.getName() + " to " + c2.getName() + " by Bus");
     }
 }

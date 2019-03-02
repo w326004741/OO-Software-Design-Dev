@@ -5,11 +5,9 @@ package assigenmet1;
  * @date 2019/2/18 - 2:49 PM
  * @description: 实现 Transport接口的实体类，
  */
-public class ByTrain implements Transport {
+public class ByTrain implements ITransportBehaviour {
 
-
-    public void transportChoice() {
-        System.out.println("Choice Train");
+    public void transportChoice(Cities c1, Cities c2) {
+        System.out.println("Travel from " + c1.getName() + " to " + c2.getName() + " by Train");
     }
-
 }

@@ -231,18 +231,5 @@
 // Sample JSON data for Assignment I (each of you must extend with at least 3 more countries with at least 2 cities in each)
 // 分配I的JSON数据示例（每个人必须至少延伸3个国家/地区，每个国家至少有2个城市）
 //  [ ]: 数组  countries: 数组名
-// countries 数组内包含3个对象 (id, name, cities)
-//"bordering": {
-//"1": [2],
-//"2": [1],
-//"3": [4, 5],
-//"4": [3],
-//"5": [4],
-//"6": [7, 8],
-//"7": [6, 8],
-//"8": [6, 7],
-//"9": [],
-//"10": [11],
-//"11": [10]
-//}
+
 

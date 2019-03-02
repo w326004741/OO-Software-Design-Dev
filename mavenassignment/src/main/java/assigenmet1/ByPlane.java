@@ -5,8 +5,9 @@ package assigenmet1;
  * @date 2019/2/18 - 2:49 PM
  * @description: ${description}
  */
-public class ByPlane implements Transport {
-    public void transportChoice() {
-        System.out.println("Choice Plane");
+public class ByPlane implements ITransportBehaviour {
+
+    public void transportChoice(Cities c1, Cities c2) {
+        System.out.println("Travel from " + c1.getName() + " to " + c2.getName() + " by Plane");
     }
 }

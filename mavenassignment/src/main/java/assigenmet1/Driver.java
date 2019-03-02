@@ -63,23 +63,31 @@ public class Driver {
                 c.setCapitalId(cityArray.getJSONObject(0).getInt("id"));
                 c.setCapitalName(cityArray.getJSONObject(0).getString("name"));
                 System.out.println(c.toString());
+
             }
             System.out.println();
         }
+        System.out.println("=================== 输出 borderingObject 结果===================");
+        JSONObject borderingObject = data.getJSONObject("bordering");
+        JSONArray borderingArray = data.getJSONObject("bordering").getJSONArray("1");
+        System.out.println(borderingObject);
+        System.out.println("1 : " + borderingArray);
+        System.out.println();
     }
 
     public static void main(String[] args) {
         JSONArray();
 
-//        System.out.println("=================== 输出 borderingObject 结果===================");
-//        JSONObject borderingObject = data.getJSONObject("bordering");
-//        JSONArray borderingArray = data.getJSONObject("bordering").getJSONArray("1");
-//        System.out.println(borderingObject + "\n" + borderingObject.length());
-//        System.out.println(borderingArray);
-//
-//        JourneyLeg journeyLeg = new JourneyLeg();
 
+        Countries countries1 = new Countries(1, "Ireland");
+        Countries countries2 = new Countries(1, "Ireland");
 
+        Cities c1 = new Cities(101, "Dublin");
+        Cities c2 = new Cities(102, "Galway");
+
+        JourneyLeg journeyLeg = new JourneyLeg(new ByBus());
+        journeyLeg.travel(c2, c1);
+        System.out.println();
     }
 }
 
