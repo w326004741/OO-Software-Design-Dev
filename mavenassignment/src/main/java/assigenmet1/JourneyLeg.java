@@ -35,14 +35,21 @@ public class JourneyLeg {
      * 3. if between cities in non-bordering countries, travel by plane through their corresponding airports
      */
     public void compareCountry(Countries countries1, Countries countries2, Cities c1, Cities c2) {
-
-//        if ((countries1 == countries2) && (c1 != c2)) {
+//
+//        if ((!c1.equals(c2)) && (countries1.equals(countries2))) {
 //            JourneyLeg journeyLeg = new JourneyLeg(new ByBus());
 //            journeyLeg.travel(c1, c2);
-//        } else if ((countries1 != countries2) && (c1 != c2)) {
-//            JourneyLeg journeyLeg1 = new JourneyLeg(new ByPlane());
+//        } else if ((!c1.equals(c2)) && (!countries1.equals(countries2))) {
+//            JourneyLeg journeyLeg1 = new JourneyLeg(new ByTrain());
 //            journeyLeg1.travel(c1, c2);
 //        }
+////        if ((countries1 == countries2) && (c1 != c2)) {
+////            JourneyLeg journeyLeg = new JourneyLeg(new ByBus());
+////            journeyLeg.travel(c1, c2);
+////        } else if ((countries1 != countries2) && (c1 != c2)) {
+////            JourneyLeg journeyLeg1 = new JourneyLeg(new ByPlane());
+////            journeyLeg1.travel(c1, c2);
+////        }
     }
 }
 

@@ -78,16 +78,17 @@ public class Driver {
     public static void main(String[] args) {
         JSONArray();
 
-
         Countries countries1 = new Countries(1, "Ireland");
         Countries countries2 = new Countries(1, "Ireland");
-
         Cities c1 = new Cities(101, "Dublin");
         Cities c2 = new Cities(102, "Galway");
 
-        JourneyLeg journeyLeg = new JourneyLeg(new ByBus());
-        journeyLeg.travel(c2, c1);
-        System.out.println();
+//        JourneyLeg journeyLeg = new JourneyLeg(new ByBus());
+//        journeyLeg.travel(c2, c1);
+//        System.out.println();
+
+        JourneyLeg journeyLeg1 = new JourneyLeg();
+        journeyLeg1.compareCountry(countries1, countries2, c1, c2);
     }
 }
 
