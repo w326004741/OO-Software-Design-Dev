@@ -6,19 +6,23 @@
       "cities": [
         {
           "id": 101,
-          "name": "Dublin"
+          "name": "Dublin",
+          "population": 1024027
         },
         {
           "id": 102,
-          "name": "Galway"
+          "name": "Galway",
+          "population": 70686
         },
         {
           "id": 103,
-          "name": "Cork"
+          "name": "Cork",
+          "population": 190384
         },
         {
           "id": 104,
-          "name": "Limerick"
+          "name": "Limerick",
+          "population": 90054
         }
       ],
       "capital": 101
@@ -29,15 +33,18 @@
       "cities": [
         {
           "id": 201,
-          "name": "London"
+          "name": "London",
+          "population": 70686
         },
         {
           "id": 202,
-          "name": "Birmingham"
+          "name": "Birmingham",
+          "population": 70686
         },
         {
           "id": 203,
-          "name": "Manchester"
+          "name": "Manchester",
+          "population": 70686
         }
       ],
       "capital": 201
@@ -48,15 +55,18 @@
       "cities": [
         {
           "id": 301,
-          "name": "Washington DC"
+          "name": "Washington DC",
+          "population": 70686
         },
         {
           "id": 302,
-          "name": "New York City"
+          "name": "New York City",
+          "population": 70686
         },
         {
           "id": 303,
-          "name": "Los Angeles"
+          "name": "Los Angeles",
+          "population": 70686
         }
       ],
       "capital": 301
@@ -67,11 +77,13 @@
       "cities": [
         {
           "id": 401,
-          "name": "Ottawa"
+          "name": "Ottawa",
+          "population": 70686
         },
         {
           "id": 402,
-          "name": "Toronto"
+          "name": "Toronto",
+          "population": 70686
         }
       ],
       "capital": 401
@@ -82,19 +94,23 @@
       "cities": [
         {
           "id": 501,
-          "name": "Mexico City"
+          "name": "Mexico City",
+          "population": 70686
         },
         {
           "id": 502,
-          "name": "Tijuana"
+          "name": "Tijuana",
+          "population": 70686
         },
         {
           "id": 503,
-          "name": "Juárez"
+          "name": "Juárez",
+          "population": 70686
         },
         {
           "id": 504,
-          "name": "Acapulco"
+          "name": "Acapulco",
+          "population": 70686
         }
       ],
       "capital": 501
@@ -105,15 +121,19 @@
       "cities": [
         {
           "id": 601,
-          "name": "Rome"
+          "name": "Rome",
+          "population": 70686
         },
         {
           "id": 602,
-          "name": "Milan"
+          "name": "Milan",
+          "population": 70686
+
         },
         {
           "id": 603,
-          "name": "Naples"
+          "name": "Naples",
+          "population": 70686
         }
       ],
       "capital": 601
@@ -124,15 +144,18 @@
       "cities": [
         {
           "id": 701,
-          "name": "Vienna"
+          "name": "Vienna",
+          "population": 70686
         },
         {
           "id": 702,
-          "name": "Innsbruck"
+          "name": "Innsbruck",
+          "population": 70686
         },
         {
           "id": 703,
-          "name": "Salzburg"
+          "name": "Salzburg",
+          "population": 70686
         }
       ],
       "capital": 701
@@ -143,19 +166,23 @@
       "cities": [
         {
           "id": 801,
-          "name": "Bern"
+          "name": "Bern",
+          "population": 70686
         },
         {
           "id": 802,
-          "name": "Zurich"
+          "name": "Zurich",
+          "population": 70686
         },
         {
           "id": 803,
-          "name": "Lausanne"
+          "name": "Lausanne",
+          "population": 70686
         },
         {
           "id": 804,
-          "name": "Lugano"
+          "name": "Lugano",
+          "population": 70686
         }
       ],
       "capital": 801
@@ -166,11 +193,13 @@
       "cities": [
         {
           "id": 901,
-          "name": "Lagos"
+          "name": "Lagos",
+          "population": 70686
         },
         {
           "id": 902,
-          "name": "Benin"
+          "name": "Benin",
+          "population": 70686
         }
       ],
       "capital": 901
@@ -181,15 +210,18 @@
       "cities": [
         {
           "id": 1001,
-          "name": "Beijing"
+          "name": "Beijing",
+          "population": 21707000
         },
         {
           "id": 1002,
-          "name": "Hong Kong"
+          "name": "Hong Kong",
+          "population": 7409800
         },
         {
           "id": 1003,
-          "name": "Macau"
+          "name": "Macau",
+          "population": 649100
         }
       ],
       "capital": 1001
@@ -200,15 +232,18 @@
       "cities": [
         {
           "id": 1101,
-          "name": "Moscow"
+          "name": "Moscow",
+          "population": 649100
         },
         {
           "id": 1102,
-          "name": "Saint Petersburg"
+          "name": "Saint Petersburg",
+          "population": 649100
         },
         {
           "id": 1103,
-          "name": "Novosibirsk"
+          "name": "Novosibirsk",
+          "population": 649100
         }
       ],
       "capital": 1101
@@ -231,5 +266,17 @@
 // Sample JSON data for Assignment I (each of you must extend with at least 3 more countries with at least 2 cities in each)
 // 分配I的JSON数据示例（每个人必须至少延伸3个国家/地区，每个国家至少有2个城市）
 //  [ ]: 数组  countries: 数组名
-
+//  "bordering": {
+//    "1": [2],
+//    "2": [1],
+//    "3": [4, 5],
+//    "4": [3],
+//    "5": [4],
+//    "6": [7, 8],
+//    "7": [6, 8],
+//    "8": [6, 7],
+//    "9": [],
+//    "10": [11],
+//    "11": [10]
+//  }
 

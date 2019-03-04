@@ -24,9 +24,9 @@ public class JourneyLeg {
         this.transport = transport;
     }
 
-    public void travel(Cities c1, Cities c2) {
+    public void travel(City c1, City c2) {
         this.transport.transportChoice(c1, c2);
-//        System.out.println("called travel method");
+        System.out.println("called travel method");
     }
 
     /**
@@ -34,7 +34,7 @@ public class JourneyLeg {
      * 2. if between cities in bordering countries, take the train
      * 3. if between cities in non-bordering countries, travel by plane through their corresponding airports
      */
-    public void compareCountry(Countries countries1, Countries countries2, Cities c1, Cities c2) {
+    public void compareCountry(Country countries1, Country countries2, City c1, City c2) {
 //
 //        if ((!c1.equals(c2)) && (countries1.equals(countries2))) {
 //            JourneyLeg journeyLeg = new JourneyLeg(new ByBus());

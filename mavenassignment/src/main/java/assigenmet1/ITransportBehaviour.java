@@ -11,6 +11,8 @@ package assigenmet1;
  */
 public interface ITransportBehaviour {
 
-    public void transportChoice(Cities c1, Cities c2);
+    public void transportChoice(City c1, City c2);
+
+//    public String transportChoice(City c1, City c2);
 
 }
