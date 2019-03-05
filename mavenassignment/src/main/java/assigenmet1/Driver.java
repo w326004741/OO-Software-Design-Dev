@@ -4,11 +4,12 @@ package assigenmet1;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-import sun.lwawt.macosx.CImage;
-import sun.tools.tree.NewArrayExpression;
 
 import java.io.InputStream;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.Set;
 
 /**
  * @author Weichen Wang
@@ -16,241 +17,176 @@ import java.util.*;
  * @description: ${description}
  */
 public class Driver {
-    //  Class called Class 类自己调用自己并初始化 new 对象
-    static Driver main = new Driver();
+    static final HashMap<Integer, Country> COUNTRIES = new HashMap<Integer, Country>();// Country List 国家列表
+    static final HashMap<Integer, City> CITIES = new HashMap<Integer, City>();// City List 城市列表
+    static Scanner sc = new Scanner(System.in);
+    static City city;
+    static Country country;
+    static Country bordering;
 
-
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-
-        /**获取InputStream，拿到JSON文件*/
-        InputStream input = main.getClass().getResourceAsStream("/data.json");
-        /**JSONTokener 解析JSON文件*/
+    // JSON file Parser
+    public static void initArray() {
+        // 获取InputStream，拿到JSON文件
+        InputStream input = Driver.class.getResourceAsStream("/data.json");
+        // JSONTokener 解析JSON文件
         JSONTokener parser = new JSONTokener(input);
-        /**JSONObject接受解析文件内容，存入JSONObject data*/
+        // JSONObject接受解析文件内容，存入JSONObject data
         JSONObject data = new JSONObject(parser);
-
-        /** List all the countries
-         * JSONArray get对象内的数组 countriesArray 可以用foreach() 遍历输出
-         * JSONArray的类型为Object 可以查看源代码
-         * 首先一般json对象是不保证顺序的  底层选择的map类型问题(LinkedHashMap有序)*/
         JSONArray countriesArray = data.getJSONArray("countries");
 
-        System.out.println("List all the countries:");
-        for (Object countries : countriesArray) {
-            System.out.println(countries);
+        /**用countriesArray遍历得到每个国家的内容(id,name,capital)*/
+//        System.out.println("\nList all the Cities & Capital in a country: ");
+        for (int i = 0; i < countriesArray.length(); i++) {
+            int countryId = countriesArray.getJSONObject(i).getInt("id");
+            String countryName = countriesArray.getJSONObject(i).getString("name");
+            int capitalId = countriesArray.getJSONObject(i).getInt("capital");
+            City capital = null;
+            country = new Country(countryId, countryName, capital);
+            JSONArray cityArray = countriesArray.getJSONObject(i).getJSONArray("cities");
+            for (int j = 0; j < cityArray.length(); j++) {
+                int cityId = cityArray.getJSONObject(j).getInt("id");
+                String cityName = cityArray.getJSONObject(j).getString("name");
+                int population = cityArray.getJSONObject(j).getInt("population");
+                city = new City(cityId, cityName, population);
+                city.setCountry(country);
+                country.putCity(city);
+                if (capitalId == cityId) {
+                    country.setCapital(city);
+                }
+                CITIES.put(city.getId(), city);
+            }
+            COUNTRIES.put(country.getId(), country);
         }
 
-        int cityId = 0;
-        String cityName = null;
-        int population = 0;
 
-        int countriesId = 0;
-        String countriesName = null;
-        int capital = 0;
-        JSONArray bordering;
-
-
-        /**用countriesArray遍历得到每个国家的内容(id,name,capital)*/
-        System.out.println("\n**********************List all the City & Capital in a country**********************");
-//        int userInput = sc.nextInt();
-//        sc.nextLine();
         for (int i = 0; i < countriesArray.length(); i++) {
-            countriesId = countriesArray.getJSONObject(i).getInt("id");
-            countriesName = countriesArray.getJSONObject(i).getString("name");
-            capital = countriesArray.getJSONObject(i).getInt("capital");
-            int countriesPopulation = 0; // country population 一定要是private local variable,如果是global variable,则会一直叠加
-//            bordering = countriesArray.getJSONObject(i).getJSONArray("bordering");
-//            System.out.println("Country ID = " + (i + 1) + ", Country Name = " + countriesName + ", Country Capital = " + capital);
+            int countryId = countriesArray.getJSONObject(i).getInt("id");
+            Country country = COUNTRIES.get(countryId);
+            JSONArray borderingArray = countriesArray.getJSONObject(i).getJSONArray("bordering");
+            for (int j = 0; j < borderingArray.length(); j++) {
+                int borderingId = borderingArray.getInt(j);
+                bordering = COUNTRIES.get(borderingId);
+                country.putNeighbor(bordering);
+            }
+//            System.out.println(country.toString() + ", ");
+        }
+    }
 
-            /** Get cityArray using JSONArray, 遍历cityArray得到每个城市的内容(id,name)
-             * 初始化并实例化Capital, Set CapitalID & CapitalName,输出该国家的Capital*/
-            JSONArray cityArray = countriesArray.getJSONObject(i).getJSONArray("cities");
-            City cities = null;
-            for (int j = 0; j < cityArray.length(); j++) {
-                cityId = cityArray.getJSONObject(j).getInt("id");
-                cityName = cityArray.getJSONObject(j).getString("name");
-                population = cityArray.getJSONObject(j).getInt("population");
-                /**把JSON内的cityArray的数据结果全部存入Map*/
-                Map<String, City> cityByName = new HashMap<String, City>();
-                cities = new City(cityId, cityName, population);
-                cityByName.put(cityName, cities); // cityName = Key, city = Value 通过Key->Value
-                /**把Map集合变成Set集合,用Iterator迭代输出*/
-                Set<Map.Entry<String, City>> setCity = cityByName.entrySet();
-                Iterator<Map.Entry<String, City>> iter = setCity.iterator();
-//                System.out.println("City By Name Map:");
-                while (iter.hasNext()) {
-                    Map.Entry<String, City> me = iter.next();
-                    System.out.println(me.getKey() + " = " + me.getValue().getId() + "\t(Key=Value.getId)");
-                    System.out.println(me.getKey() + " = " + me.getValue().getName() + "\t(Key=Value.getName)");
-                    System.out.println(me.getKey() + " = " + me.getValue().getPopulation() + "\t(Key=Value.getPopulation)");
-//                    System.out.println();// 每个城市内容输出后的空行
-                }
-                countriesPopulation += population;
+    public static void main(String[] args) {
+        initArray(); // reloading data 加载JSON数据
+        while (true) {
+            System.out.println();
+            menu();
+            int user = sc.nextInt();
+            switch (user) {
+                case 1:
+                    listAllCountries(COUNTRIES); // List all the countries
+                    break;
+                case 2: // For every country, list the bordering countries
+                    // and answer the question whether two countries are bordering or not
+                    System.out.println("List bordering countries: ");
+                    // ??????????????? 输出bordering countries/
+                    System.out.println("Please input FromCityId: ");
+                    int cityFromId = sc.nextInt();
+                    System.out.println("Please input ToCityId: ");
+                    int cityToId = sc.nextInt();
+                    isNeighbor(cityFromId, cityToId);
+                    break;
+                case 3: // Retrieve the population of a city or country(For City Population)
+                    System.out.println("Please input City Id to Check the Population of a City: ");
+                    int cityId = sc.nextInt();
+                    populationCity(cityId);
+                    break;
+                case 4: // List all the cities in a country, or retrieve only the capital
+                    listAllCities(CITIES);
+                    break;
+                case 5:  // The Best Travel Plan
+                    System.out.println("Please input FromCityId:");
+                    int cityFromId1 = sc.nextInt();
+                    System.out.println("Please input ToCityId: ");
+                    int cityToId1 = sc.nextInt();
+                    travelPlan(cityFromId1, cityToId1);
+                    break;
+                case 6:  // Exit
+                    System.out.println("Thanks for your use! Bye-Bye :-)");
+                    System.exit(1);
+                    break;
+                default: // Error Input
+                    System.err.println("\nSorry, We don't have this function, Please Enter Again.");
+                    break;
             }
-//                Capital c = new Capital(); // Initialization Capital to set CapitalId & CapitalName
-//                c.setCapitalId(cityArray.getJSONObject(0).getInt("id"));
-//                c.setCapitalName(cityArray.getJSONObject(0).getString("name"));
-//                System.out.println(c.toString());
-            /**把JSON内的countriesArray的数据结果全部存入Map*/
-            Map<City, Country> countriesPerCity = new HashMap<City, Country>();
-            Country country = new Country(countriesId, countriesName, capital, countriesPopulation);
-            countriesPerCity.put(cities, country);
-            /**把Map集合变成Set集合,用Iterator迭代输出*/
-            Set<Map.Entry<City, Country>> setCountry = countriesPerCity.entrySet();
-            Iterator<Map.Entry<City, Country>> iter1 = setCountry.iterator();
-//            System.out.println("Country Per City: ");
-            while (iter1.hasNext()) {
-                Map.Entry<City, Country> me1 = iter1.next();
-//                System.out.println(me1.getKey() + " = " + me1.getValue().getId() + "\t(Key=Value.getId)");
-//                System.out.println(me1.getKey() + " = " + me1.getValue().getName() + "\t(Key=Value.getName)");
-                System.out.println(me1.getKey() + " = " + me1.getValue().getCapital() + "\t(Key=Value.getCapital)");
-                System.out.println(me1.getKey() + " = " + me1.getValue().getCountryPopulation() + "\t(Key=Value.getCountryPopulation)");
-            }
+        }
+    }
+
+    // List all the Countries
+    public static void listAllCountries(HashMap<Integer, Country> COUNTRIES) {
+        System.out.println("===============List all the country===============");
+        Set<HashMap.Entry<Integer, Country>> countriesSet = COUNTRIES.entrySet();
+        Iterator<HashMap.Entry<Integer, Country>> countriesIter = countriesSet.iterator();
+        while (countriesIter.hasNext()) {
+            HashMap.Entry<Integer, Country> hme = countriesIter.next();
+            System.out.println(hme.getValue() + ",");
+        }
+    }
+
+    // List all the cities in a countries
+    public static void listAllCities(HashMap<Integer, City> CITIES) {
+        Set<HashMap.Entry<Integer, City>> citiesSet = CITIES.entrySet();
+        Iterator<HashMap.Entry<Integer, City>> citiesIter = citiesSet.iterator();
+        System.out.println("\n==============List all the City in a Country(Id,Name,Population)==============:");
+        while (citiesIter.hasNext()) {
+            HashMap.Entry<Integer, City> hme = citiesIter.next();
+            System.out.print(hme.getValue() + ",\t\t" + "In " + hme.getValue().getCountry().getName());
             System.out.println();
         }
-        System.out.println("=================== 输出 borderingObject 结果===================");
-        JSONObject borderingObject = data.getJSONObject("bordering");
-        JSONArray borderingArray = data.getJSONObject("bordering").getJSONArray("1");
-        System.out.println(borderingObject);
-        System.out.println("1 : " + borderingArray);
-        System.out.println();
+    }
 
-        /**===========================分割线，以上都是JSONArray================================================*/
+    // Check Bordering Country
+    public static void isNeighbor(int cityFromId, int cityToId) {
+        JourneyLeg journeyLeg = null;
+        HashMap<Integer, City> cities = Driver.CITIES;
+        City cityFrom = cities.get(cityFromId);
+        City cityTo = cities.get(cityToId);
+        System.out.println(cityFromId + ": " + cityFrom.getName() + ", " + cityFrom.getCountry().getName() + "\n" + cityToId + ": " + cityTo.getName() + ", " + cityTo.getCountry().getName() + "\n");
+        if (cityFrom.getCountry().getNeighbor().get(cityTo.getCountry().getId()) != null) {
+            System.out.println("=====>️ True! They are bordering countries!");
+            return;
+        }
+        System.out.println("====> False! They are not bordering countries!");
+        return;
+    }
+
+    // Retrieve the Population of City
+    public static void populationCity(int city) {
+        JourneyLeg journeyLeg = null;
+        HashMap<Integer, City> cities = Driver.CITIES;
+        City city1 = cities.get(city);
+        System.out.println("=====Population of a City======");
+        System.out.println(city1.getName() + " population is: " + city1.getPopulation());
+    }
+
+    // Travel Plan
+    public static void travelPlan(int cityFromId, int cityToId) {
+        System.out.println("===============The Best Travel Plan could be=============== ");
+        JourneyLeg journeyLeg1 = new JourneyLeg();
+        journeyLeg1.compareCountry(cityFromId, cityToId);
+    }
+
+    public static void listBorderingCountries(HashMap<Integer, Country> COUNTRIES) {
+        System.out.println("===============List the bordering country===============");
+//        COUNTRIES.get(bordering.getName());
+    }
+
+    public static void menu() {
+        System.out.println("====================================================");
+        System.out.println("1. List all the countries");
+        System.out.println("2. List all the bordering countries & Are they Neighbor Countries? (True/False)");
+        System.out.println("3. Retrieve the population of a city or country");
+        System.out.println("4. List all the cities in a country");
+        System.out.println("5. The Best Travel Plan");
+        System.out.println("6. Exit");
+        System.out.println("=====================================================");
+        System.out.print("Please enter number: ");
     }
 }
-////        Country countries1 = new Country(1, "Ireland", , c1);
-//        JourneyLeg journeyLeg = new JourneyLeg(new ByBus());
-//        journeyLeg.travel(c2, c1);
-//        System.out.println();
 
-
-//        Map<City, Country> countriesPerCity = new HashMap<City, Country>();
-//        Country country = new Country(countriesId, countriesName);
-//        Set<Map.Entry<City, Country>> setCountry = countriesPerCity.entrySet();
-//        Iterator<Map.Entry<City, Country>> iter1 = setCountry.iterator();
-//        while (iter1.hasNext()) {
-//            Map.Entry<City, Country> me1 = iter1.next();
-//            System.out.println(me1.getKey() + " = " + me1.getValue().getId() + "\tKey=Value.getId");
-//            System.out.println(me1.getKey() + " = " + me1.getValue().getName() + "\tKey=Value.getName");
-//            System.out.println(me1.getKey() + " = " + me1.getValue().getCapital() + "\tKey=Value.getCapital");
-//            System.out.println(me1.getKey() + " = " + me1.getValue().getCity() + "\tKey=Value.getCity");
-//            System.out.println();
-//        }
-
-
-//        /**Create a Map<>*/
-//        Map<String, Country> countriesMap = new HashMap<String, Country>();
-//
-//        /**I can still use proper capitalisation in the title! */
-//        Country c1 = new Country("Ireland", 1, 101);
-//        Country c2 = new Country("United Kingdom", 2, 201);
-//        Country c3 = new Country("United States", 3, 301);
-//        /*
-//         *  But for the key, I can just use lowercase to make it easier on the user
-//         * 但是对于密钥，我可以使用小写来使用户更容易*/
-//        countriesMap.put("ireland", c1);
-//        countriesMap.put("united kingdom", c2);
-//        countriesMap.put("united states", c3);
-//
-//
-////        Set<String> set = countriesMap.keySet(); // 取得全部的Key
-////        Iterator<String> iter = set.iterator();
-////        while (iter.hasNext()) {
-////            System.out.println(iter.next());
-////        }
-//        // 把Map集合变成Set集合
-//        Set<Map.Entry<String, Country>> set = countriesMap.entrySet();
-//        Iterator<Map.Entry<String, Country>> iter = set.iterator();
-//        while (iter.hasNext()) {
-//            Map.Entry<String, Country> me = iter.next();
-//            // getCities() 数组为null
-//            System.out.println(me.getKey() + " = " + me.getValue().getCities());
-//            // 下面的get方法都是上面创建对象直接给的值，和json文件没有关系(怎么才能直接引用json文件内容全部put到Map)
-//            System.out.println(me.getKey() + " = " + me.getValue().getId() + " \tKey=Value.getId");
-//            System.out.println(me.getKey() + " = " + me.getValue().getName() + " \tKey=Value.getName");
-//            System.out.println(me.getKey() + " = " + me.getValue().getCapital() + " \tKey=Value.getCapital");
-//        }
-//
-////        countriesMap.putAll();
-////        if (countriesMap.containsKey("ireland")) {
-////            System.out.println(true);
-////        } else {
-////            System.out.println(false);
-////        }
-////
-////        Country c = countriesMap.get("ireland");
-////        System.out.println(c.getName());
-
-//        /***
-//         *   能不能用一个循环（for） 一次性导入所有的data.json内容
-//         */
-//    }
-
-//    public static void JSONArray() {
-//        /**获取InputStream，拿到JSON文件*/
-//        InputStream input = main.getClass().getResourceAsStream("/data.json");
-//        /**JSONTokener 解析JSON文件*/
-//        JSONTokener parser = new JSONTokener(input);
-//        /**JSONObject接受解析文件内容，存入JSONObject data*/
-//        JSONObject data = new JSONObject(parser);
-//
-//        /** List all the countries
-//         * JSONArray get对象内的数组 countriesArray 可以用foreach() 遍历输出
-//         * JSONArray的类型为Object 可以查看源代码
-//         * 首先一般json对象是不保证顺序的  底层选择的map类型问题(LinkedHashMap有序)*/
-//        JSONArray countriesArray = data.getJSONArray("countries");
-//
-//        System.out.println("List all the countries:");
-//        for (Object countries : countriesArray) {
-//            System.out.println(countries);
-//        }
-//
-//        int cityId = 0;
-//        String cityName = null;
-//        int population = 0;
-//
-//
-//        int countriesId = 0;
-//        String countriesName = null;
-//        int capital = 0;
-//        JSONArray bordering;
-//
-//        /**用countriesArray遍历得到每个国家的内容(id,name,capital)*/
-//        System.out.println("\nList all the City & Capital in a country: ");
-//        for (int i = 0; i < countriesArray.length(); i++) {
-//            countriesId = countriesArray.getJSONObject(i).getInt("id");
-//            countriesName = countriesArray.getJSONObject(i).getString("name");
-//            capital = countriesArray.getJSONObject(i).getInt("capital");
-////            bordering = countriesArray.getJSONObject(i).getJSONArray("bordering");
-//            System.out.println("Country ID = " + (i + 1) + ", Country Name = " + countriesName + ", Country Capital = " + capital);
-//
-//            /** Get cityArray using JSONArray, 遍历cityArray得到每个城市的内容(id,name)
-//             * 初始化并实例化Capital, Set CapitalID & CapitalName,输出该国家的Capital*/
-//            JSONArray cityArray = countriesArray.getJSONObject(i).getJSONArray("cities");
-//            for (int j = 0; j < cityArray.length(); j++) {
-//                cityId = cityArray.getJSONObject(j).getInt("id");
-//                cityName = cityArray.getJSONObject(j).getString("name");
-//                population = cityArray.getJSONObject(j).getInt("population");
-//
-//                City cities = new City(cityId, cityName, population);
-//                System.out.print(cities.toString() + ", ");
-//
-//                Capital c = new Capital(); // Initialization Capital to set CapitalId & CapitalName
-//                c.setCapitalId(cityArray.getJSONObject(0).getInt("id"));
-//                c.setCapitalName(cityArray.getJSONObject(0).getString("name"));
-//                System.out.println(c.toString());
-//
-//            }
-//            System.out.println();
-//        }
-//        System.out.println("=================== 输出 borderingObject 结果===================");
-//        JSONObject borderingObject = data.getJSONObject("bordering");
-//        JSONArray borderingArray = data.getJSONObject("bordering").getJSONArray("1");
-//        System.out.println(borderingObject);
-//        System.out.println("1 : " + borderingArray);
-//        System.out.println();
-//
-//
-//    }

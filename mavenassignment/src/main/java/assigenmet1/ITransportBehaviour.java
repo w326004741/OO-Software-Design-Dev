@@ -13,6 +13,4 @@ public interface ITransportBehaviour {
 
     public void transportChoice(City c1, City c2);
 
-//    public String transportChoice(City c1, City c2);
-
 }
