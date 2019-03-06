@@ -2,8 +2,6 @@ package assigenmet1;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
 
 /**
  * @author Weichen Wang
@@ -13,12 +11,12 @@ import java.util.List;
 public class Country {
     private int id;
     private String name;
-    private HashMap<Integer, City> cities; //是有序的HashMap(order HashMap)
-    private City capital;   // One Country only one Capital
-    private HashMap<Integer, Country> neighbor;
-    
+    private HashMap<Integer, City> cities; // HashMap 是无序的  Integer = id
+    private City capital;
+    private HashMap<Integer, Country> neighbor; // Integer = id, bordering country,通过国家ID找到国家名字
+
     public Country() {
-    	
+
     }
 
     public Country(final int id, String name, City capital) {
@@ -28,12 +26,16 @@ public class Country {
         this.cities = new HashMap<Integer, City>();
         this.neighbor = new HashMap<Integer, Country>();
     }
-    public void putCity(City city){
-    	cities.put(city.getId(), city);
+
+    // put Cityid to cities map as key, city object as value(to find 对应的city,因为是键值对，一对一对的)
+    public void putCity(City city) {
+        cities.put(city.getId(), city);
     }
-    public void putNeighbor(Country country){
-    	neighbor.put(country.getId(), country);
+
+    public void putNeighbor(Country country) {
+        neighbor.put(country.getId(), country); //通过neighbor countryId 找到对应的country
     }
+
     // getter & setter method
     public int getId() {
         return id;
@@ -52,32 +54,32 @@ public class Country {
     }
 
     public HashMap<Integer, City> getCities() {
-		return cities;
-	}
+        return cities;
+    }
 
-	public void setCities(HashMap<Integer, City> cities) {
-		this.cities = cities;
-	}
+    public void setCities(HashMap<Integer, City> cities) {
+        this.cities = cities;
+    }
 
-	public City getCapital() {
-		return capital;
-	}
+    public City getCapital() {
+        return capital;
+    }
 
-	public void setCapital(City capital) {
-		this.capital = capital;
-	}
+    public void setCapital(City capital) {
+        this.capital = capital;
+    }
 
-	public HashMap<Integer, Country> getNeighbor() {
-		return neighbor;
-	}
+    public HashMap<Integer, Country> getNeighbor() {
+        return neighbor;
+    }
 
-	public void setNeighbor(HashMap<Integer, Country> neighbor) {
-		this.neighbor = neighbor;
-	}
+    public void setNeighbor(HashMap<Integer, Country> neighbor) {
+        this.neighbor = neighbor;
+    }
 
-	@Override
+    @Override
     public String toString() {
         return "Country{" + "name=" + name + ", id='" + id + '\'' + ", cities=" + cities +
-                ", cities=" + cities + ", capital=" + capital + ", neighbor=" + neighbor.keySet() +'}';
+                ", cities=" + cities + ", capital=" + capital + ", neighbor=" + neighbor.keySet() + '}';
     }
 }

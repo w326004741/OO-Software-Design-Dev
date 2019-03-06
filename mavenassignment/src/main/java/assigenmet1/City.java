@@ -13,7 +13,6 @@ public class City {
 
     // Default Constructor
     public City() {
-        
     }
 
     // Override Constructor
@@ -24,14 +23,14 @@ public class City {
     }
 
     public Country getCountry() {
-		return country;
-	}
+        return country;
+    }
 
-	public void setCountry(Country country) {
-		this.country = country;
-	}
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 
-	// getter & setter
+    // getter & setter
     public int getId() {
         return id;
     }
@@ -49,14 +48,14 @@ public class City {
     }
 
     public int getPopulation() {
-		return population;
-	}
+        return population;
+    }
 
-	public void setPopulation(int population) {
-		this.population = population;
-	}
+    public void setPopulation(int population) {
+        this.population = population;
+    }
 
-	@Override
+    @Override
     public String toString() {
         return "City{" + "'id' = '" + id + "', 'name' = '" + name + "', " + "'population' = '" + population + "'}";
     }

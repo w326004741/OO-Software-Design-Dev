@@ -3,8 +3,9 @@ package assigenmet1;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONTokener;
+import org.json.JSONTokener               ;
 
+import javax.sound.midi.Soundbank;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -35,7 +36,6 @@ public class Driver {
         JSONArray countriesArray = data.getJSONArray("countries");
 
         /**用countriesArray遍历得到每个国家的内容(id,name,capital)*/
-//        System.out.println("\nList all the Cities & Capital in a country: ");
         for (int i = 0; i < countriesArray.length(); i++) {
             int countryId = countriesArray.getJSONObject(i).getInt("id");
             String countryName = countriesArray.getJSONObject(i).getString("name");
@@ -57,7 +57,6 @@ public class Driver {
             }
             COUNTRIES.put(country.getId(), country);
         }
-
 
         for (int i = 0; i < countriesArray.length(); i++) {
             int countryId = countriesArray.getJSONObject(i).getInt("id");
@@ -85,7 +84,7 @@ public class Driver {
                 case 2: // For every country, list the bordering countries
                     // and answer the question whether two countries are bordering or not
                     System.out.println("List bordering countries: ");
-                    // ??????????????? 输出bordering countries/
+                    listBorderingCountries(COUNTRIES);
                     System.out.println("Please input FromCityId: ");
                     int cityFromId = sc.nextInt();
                     System.out.println("Please input ToCityId: ");
@@ -120,12 +119,12 @@ public class Driver {
 
     // List all the Countries
     public static void listAllCountries(HashMap<Integer, Country> COUNTRIES) {
-        System.out.println("===============List all the country===============");
+        System.out.println("===============List all the countries===============");
         Set<HashMap.Entry<Integer, Country>> countriesSet = COUNTRIES.entrySet();
         Iterator<HashMap.Entry<Integer, Country>> countriesIter = countriesSet.iterator();
         while (countriesIter.hasNext()) {
             HashMap.Entry<Integer, Country> hme = countriesIter.next();
-            System.out.println(hme.getValue() + ",");
+            System.out.println(hme.getValue() + ",\n");
         }
     }
 
@@ -145,6 +144,7 @@ public class Driver {
     public static void isNeighbor(int cityFromId, int cityToId) {
         JourneyLeg journeyLeg = null;
         HashMap<Integer, City> cities = Driver.CITIES;
+        HashMap<Integer, Country> countries = Driver.COUNTRIES;
         City cityFrom = cities.get(cityFromId);
         City cityTo = cities.get(cityToId);
         System.out.println(cityFromId + ": " + cityFrom.getName() + ", " + cityFrom.getCountry().getName() + "\n" + cityToId + ": " + cityTo.getName() + ", " + cityTo.getCountry().getName() + "\n");
@@ -172,9 +172,21 @@ public class Driver {
         journeyLeg1.compareCountry(cityFromId, cityToId);
     }
 
+    // List all the bordering countries
     public static void listBorderingCountries(HashMap<Integer, Country> COUNTRIES) {
         System.out.println("===============List the bordering country===============");
-//        COUNTRIES.get(bordering.getName());
+        Set<HashMap.Entry<Integer, Country>> countriesSet = COUNTRIES.entrySet();
+        Iterator<HashMap.Entry<Integer, Country>> countriesIter = countriesSet.iterator();
+        while (countriesIter.hasNext()) {
+            HashMap.Entry<Integer, Country> hme = countriesIter.next();
+            System.out.println("<<" + hme.getValue().getName() + "'s bordering countries>>:  " + hme.getValue().getNeighbor() + ",\n");
+        }
+//        JourneyLeg journeyLeg = null;
+//        HashMap<Integer, City> cities = Driver.CITIES;
+//        HashMap<Integer, Country> countries = Driver.COUNTRIES;
+//        City cityFrom = cities.get(cityFromId);
+//        City cityTo = cities.get(cityToId);
+//        System.out.println("FromCity's bordering country: " + cityFrom.getCountry().getNeighbor() + "\n\n" + "ToCity's bordering country: " + cityTo.getCountry().getNeighbor() + "\n");
     }
 
     public static void menu() {
