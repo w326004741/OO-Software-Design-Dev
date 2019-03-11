@@ -81,7 +81,7 @@ ID: 18232813\
 \f5 https://www.objectaid.com/home}})\
 The ObjectAid UML Explorer is an agile and lightweight code visualization tool for the Eclipse IDE.\
 \
-Use Case Tool: Lucidchart 
+Use Case Tool: Lucidchart online 
 \f6 (
 \f3  {\field{\*\fldinst{HYPERLINK "https://www.lucidchart.com"}}{\fldrslt https://www.lucidchart.com}})
 \f2\b\fs24 \

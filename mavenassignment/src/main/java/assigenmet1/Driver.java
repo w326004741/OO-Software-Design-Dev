@@ -3,7 +3,7 @@ package assigenmet1;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONTokener               ;
+import org.json.JSONTokener;
 
 import javax.sound.midi.Soundbank;
 import java.io.InputStream;
@@ -181,12 +181,6 @@ public class Driver {
             HashMap.Entry<Integer, Country> hme = countriesIter.next();
             System.out.println("<<" + hme.getValue().getName() + "'s bordering countries>>:  " + hme.getValue().getNeighbor() + ",\n");
         }
-//        JourneyLeg journeyLeg = null;
-//        HashMap<Integer, City> cities = Driver.CITIES;
-//        HashMap<Integer, Country> countries = Driver.COUNTRIES;
-//        City cityFrom = cities.get(cityFromId);
-//        City cityTo = cities.get(cityToId);
-//        System.out.println("FromCity's bordering country: " + cityFrom.getCountry().getNeighbor() + "\n\n" + "ToCity's bordering country: " + cityTo.getCountry().getNeighbor() + "\n");
     }
 
     public static void menu() {
