@@ -17,6 +17,7 @@ The web application must be implemented in __Java__ using __Play Framework 1.5.2
 #### Functional Requirements
 
 Users of the web-based World Atlas must be able to:
+```
 1. List all the countries in a table.
 2. Select a country from above table, to view its properties:
   * Its population and capital city.
@@ -24,16 +25,17 @@ Users of the web-based World Atlas must be able to:
   * List all the cities in the country and their properties.
 3. Plan a journey between _any_ two cities (i.e. display at least one
   travel plan) as sequences of messages. For example:
-
+```
 
     1. Travel from Barcelona to Madrid by bus
     2. Travel from Madrid to Berlin by plane
 
 Administrators of the web-based World Atlas must be able to:
+```
 1. Login to the administration web-page.
 2. Load the JSON data about countries and cities.
 3. Manually create, update, and/or delete countries and cities.
-
+```
 #### Non-functional Requirements
 Same as Assignment 1, except the application on need to import JSON from the
 administration web-page.
