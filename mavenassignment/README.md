@@ -1,10 +1,12 @@
 # Maven Assignment
-> Project: World Altas with Journey Planer  
+> Project: World Altas with Journey Planer   
 > Module: OO Software Development   
 > Lecturer: Dr Alessandro Adamou  
 > ID: 18232813  
 
-> By: [Weichen Wang](https://github.com/w326004741)
+> By: [Weichen Wang](https://github.com/w326004741)  
+
+> Document Link: [PartA](https://github.com/w326004741/OO-Software-Design-Dev/blob/master/OOP/src/Assignment1/assignment_1(1).md) & [PartB](https://github.com/w326004741/OO-Software-Design-Dev/blob/master/OOP/src/Assignment1/lab_task_01(2).md)     
 
 This project is a Maven project with data.json file as permanent data storage source file, Maven: org.json:json:20180813 as an external libraries. Implemented using the Strategy design pattern.
 
