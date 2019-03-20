@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3fa74dbe-1c50-44cb-b37b-4401954a19a2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/mavenassignment/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mavenassignment/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mavenassignment/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mavenassignment/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mavenassignment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mavenassignment/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mavenassignment/src/main/java/assigenmet1/Countries.java" beforeDir="false" afterPath="$PROJECT_DIR$/mavenassignment/src/main/java/assigenmet1/Countries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mavenassignment/src/main/java/assigenmet1/TestCountriesFromJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/mavenassignment/src/main/java/assigenmet1/TestCountriesFromJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mavenassignment/target/classes/assigenmet1/Countries.class" beforeDir="false" afterPath="$PROJECT_DIR$/mavenassignment/target/classes/assigenmet1/Countries.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mavenassignment/target/classes/assigenmet1/TestCountriesFromJson.class" beforeDir="false" afterPath="$PROJECT_DIR$/mavenassignment/target/classes/assigenmet1/TestCountriesFromJson.class" afterDir="false" />
-    </list>
+    <list default="true" id="3fa74dbe-1c50-44cb-b37b-4401954a19a2" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,12 +13,12 @@
     <session id="-338165449">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
-          <entry key="project.open.time.0" value="1" />
+          <entry key="project.closed" value="12" />
+          <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="7" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -228,7 +220,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -276,6 +267,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -389,17 +381,18 @@
       <workItem from="1550058206034" duration="655000" />
       <workItem from="1550071545395" duration="17000" />
       <workItem from="1551103711502" duration="15000" />
+      <workItem from="1553083837822" duration="10000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15595000" />
+    <option name="totallyTimeSpent" value="15605000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6196013" visible="true" weight="0.17094018" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6196013" visible="true" weight="0.17277168" />
       <window_info id="Structure" order="1" sideWeight="0.38039866" side_tool="true" weight="0.22039473" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
