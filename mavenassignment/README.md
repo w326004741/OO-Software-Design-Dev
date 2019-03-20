@@ -1,9 +1,11 @@
-README
-Project: World Altas with Journey Planer
-Module: OO Software Development
-Lecturer: Dr Alessandro Adamou
-ID: 18232813
-By: Weichen Wang
+# Maven Assignment
+> Project: World Altas with Journey Planer  
+> Module: OO Software Development   
+> Lecturer: Dr Alessandro Adamou  
+> ID: 18232813  
+
+> By: [Weichen Wang](https://github.com/w326004741)
+
 This project is a Maven project with data.json file as permanent data storage source file, Maven: org.json:json:20180813 as an external libraries. Implemented using the Strategy design pattern.
 
 1. ITransportBehaviour.java: is Interface, internally defines a transportChoice(City, City) method.
