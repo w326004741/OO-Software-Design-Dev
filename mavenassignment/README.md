@@ -23,10 +23,15 @@ This project is a Maven project with data.json file as permanent data storage so
 6. data.json: external libraries name is “Maven: org.json:json:20180813” in resource file
                       Path: mavenassignment/src/main/resources/data.json
                       link: https://mvnrepository.com/artifact/org.json/json/20180813
+                      
+#### UML Diagram:
+ ![image](https://github.com/w326004741/OO-Software-Design-Dev/blob/master/mavenassignment/UML-Assignment1.png)
+ 
+#### Use Case Diagram:
+  ![image](https://github.com/w326004741/OO-Software-Design-Dev/blob/master/mavenassignment/UseCaseDiagram-Assignment1.jpg)
 
-
-UML Tool:   ObjectAid UML Explore (https://www.objectaid.com/home)
+- UML Tool:   ObjectAid UML Explore (https://www.objectaid.com/home)
 The ObjectAid UML Explorer is an agile and lightweight code visualization tool for the Eclipse IDE.
 
-Use Case Tool: Lucidchart online ( https://www.lucidchart.com)
+- Use Case Tool: Lucidchart online ( https://www.lucidchart.com)
 
