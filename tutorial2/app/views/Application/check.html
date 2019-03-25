@@ -1,0 +1,84 @@
+#{extends 'main.html' /} *{controller的html文件都 基于main.html}*
+#{set title:'Check' /}   *{Set title be "Check"}*
+<div>
+    <h1 class="name"><a href="/">Best Bank</a></h1>
+</div>
+
+#{ifErrors}   *{Error：确保所有field 都存在并正确，否则 报错输出这个}*
+<div>
+    <span color="red">All fields are required!</span>
+</div>
+#{/ifErrors}
+
+#{form @Application.postAccountAndCustomer()}   *{对应方法名}*
+<div>
+    <strong>Select a customer:</strong> *{strong = <br>加粗}*
+    #{if customers}    *{判断条件， }*
+        #{select 'customerId', items:customers, valueProperty:'id', labelProperty:'customerName', id:'customerId' /}
+    #{/if}
+    #{else}
+        <div>
+            Unfortunately, there are no customers in the database.
+        </div>
+    #{/else}
+</div>
+
+<div>
+    <strong>Select an account:</strong>
+    #{if accounts}
+        #{select 'accountId', items:accounts, valueProperty:'id', labelProperty:'accountNumber', id:'accountId' /}
+    #{/if}
+    #{else}
+        <div>
+            Unfortunately, there are no accounts in the database.
+        </div>
+    #{/else}
+</div>
+
+<div>
+    <input type="submit" value="Check"/>
+</div>
+#{/form}
+
+
+#{if flash.success}    *{设置 flash.success方法的输出样式}*
+<div>
+    <p style="color:green">${flash.success}</p> *{左边的颜色是你设置的颜色}*
+</div>
+#{/if}
+
+#{if flash.error}   *{设置 flash.error方法的输出样式}*
+<div>
+    <p style="color:red">${flash.error}</p>
+</div>
+#{/if}
+
+
+
+
+
+
+
+*{<div>}*
+*{<h2>Check account ownership</h2>}*
+*{</div>}*
+
+*{#{if accounts}}*
+*{<p>Select an account from ${accounts.size()}</p>}*
+*{select, id: 设置html label属性, item: 使用的object, valueProperty: sort of the account id}*
+*{<b>Account}*
+*{ID:</b> #{select 'accountId', items : accounts, valueProperty:'id', labelProperty:'accountNumber', id:'accountId' /}}*
+*{#{/if}}*
+
+
+*{#{if customers}}*
+*{<p>Select an customers from ${customers.size()}</p>}*
+*{select:功能块，可选(可下拉)list customerId是该功能块的name,  id: 设置html label属性, item: 使用的object, valueProperty: sort of the account id}*
+*{<b>Customer}*
+*{ID:</b> #{select 'customerId', items : customers, valueProperty:'id', labelProperty:'customerNumber', id:'customerId' /}}*
+*{<p></p>}*
+*{<b>Customer}*
+*{Name:</b> #{select 'customerName', items : customers, valueProperty:'name', labelProperty:'customerName', id:'customerName' /}}*
+*{#{/if}}*
+
+

@@ -1,0 +1,8 @@
+25 三月 2019 14:27:22,636 INFO  ~ Starting /Users/weichenwang/Desktop/OOP/tutorial2
+25 三月 2019 14:27:22,859 ERROR ~ Module docviewer will not be loaded because /Users/weichenwang/Desktop/OOP/tutorial2/C:\Umair\lib\play1-1.5.2\modules\docviewer does not exist
+25 三月 2019 14:27:22,892 WARN  ~ You're running Play! in DEV mode
+25 三月 2019 14:27:22,949 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+25 三月 2019 14:27:26,802 INFO  ~ HikariPool-1 - Starting...
+25 三月 2019 14:27:26,874 INFO  ~ HikariPool-1 - Start completed.
+25 三月 2019 14:27:26,889 INFO  ~ Connected to jdbc:h2:mem:play for default
+25 三月 2019 14:27:27,934 INFO  ~ Application 'tutorial2' is now started !

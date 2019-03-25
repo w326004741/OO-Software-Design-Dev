@@ -1,0 +1,62 @@
+#{extends 'main.html' /} *{基于这个文件}*
+#{set title:'Home' /}
+
+<div>
+    <h1 class="name"><a href="#">AIB Bank</a></h1>
+</div>
+
+<div>
+    <h2>Accounts</h2>
+#{if accounts}       *{// 判断条件 如果有account, html文件内部嵌套java代码， like jsp file in SpringMVC}*
+    <div>       *{// All ArrayList has size funtion. show the size of the arraylist， 如果有方法名称打错，web会直接返回并定位错误信息}*
+        There are <strong>${accounts.size()}</strong> accounts in the database.
+        <table style="width:100%">
+            <tr>
+                <th>Account Number</th>
+                <th>Current Account</th>
+            </tr>
+            #{list items:accounts, as:'acc'}  *{list item:account: like foreach 遍历输出account list， as:'acc': 遍历的输出存到acc这个对象内，在下面就可以直接用该对象调用数据内容}*
+                <tr>
+                    <td>${acc.accountNumber}</td>
+                    <td>${acc}</td>
+                </tr>
+            #{/list}
+        </table>
+    </div>
+#{/if}
+#{else}
+    <div>
+        Unfortunately, there are no accounts in the database.
+    </div>
+#{/else}
+</div>
+
+
+<div>
+    <h2>Customers</h2>
+#{if customers}
+    <div>
+        There are <strong>${customers.size()}</strong> accounts in the database.
+
+        <table style="width:100%">
+            <tr>
+                <th>Customer Number</th>
+                <th>Name</th>
+                <th>Account Number</th>
+            </tr>
+            #{list items:customers, as:'customer'}
+                <tr>
+                    <td>${customer.customerNumber}</td>
+                    <td>${customer.customerName}</td>
+                    <td>${customer.account.accountNumber}</td>
+                </tr>
+            #{/list}
+        </table>
+    </div>
+#{/if}
+#{else}
+    <div>
+        Unfortunately, there are no customers in the database.
+    </div>
+#{/else}
+</div>
