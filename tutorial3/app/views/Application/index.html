@@ -1,0 +1,66 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<div>
+    <h1 class="name"><a href="/">Best Bank</a></h1>
+</div>
+
+<div>
+    Click <a href="/check">here</a> to verify account ownership.
+</div>
+<div>
+    <h2>Accounts</h2>
+    #{if accounts}
+        <div >    
+            There are <strong>${accounts.size()}</strong> accounts in the database.
+
+            <table style="width:100%">
+                <tr>
+                    <th>Account Number</th>
+                    <th>Current Account</th> 
+                </tr>
+                #{list items:accounts, as:'account'}
+                <tr>
+                    <td>${account.accountNumber}</td> *{注意这里！！可以把accountNumber 换成 getAccountNumber}*
+                    <td>${account.isCurrentAccount}</td> 
+                </tr>
+                #{/list}
+            </table>
+        </div>
+    #{/if}
+    #{else}
+        <div>
+            Unfortunately, there are no accounts in the database.
+        </div>
+    #{/else}
+</div>
+
+
+<div>
+    <h2>Customers</h2>
+    #{if customers}
+        <div >    
+            There are <strong>${customers.size()}</strong> accounts in the database.
+
+            <table style="width:100%">
+                <tr>
+                    <th>Customer Number</th>
+                    <th>Name</th> 
+                    <th>Account Number</th>
+                </tr>
+                #{list items:customers, as:'customer'}
+                <tr>
+                    <td>${customer.customerNumber}</td>
+                    <td>${customer.customerName}</td> 
+                    <td>${customer.account.accountNumber}</td>
+                </tr>
+                #{/list}
+            </table>
+        </div>
+    #{/if}
+    #{else}
+        <div>
+            Unfortunately, there are no customers in the database.
+        </div>
+    #{/else}
+</div>

@@ -1,0 +1,20 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page  (GET: HttpGetRequest.GET() method)
+GET     /                                       Application.index
+GET     /check                                  Application.check
+GET     /loader                                 Customerloader.loader
+
+# Import CRUD routes  (*: 使用HttpRequest内的所有方法(GET,POST,PUT...),全局引用， /admin: working on crud module)
+*      /admin                                   module:crud
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}
