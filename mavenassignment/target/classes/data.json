@@ -90,7 +90,7 @@
         }
       ],
       "capital": 401,
-	  "bordering": [3]
+	  "bordering": [3,5]
     },
     {
       "id": 5,

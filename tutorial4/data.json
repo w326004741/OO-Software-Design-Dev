@@ -1,0 +1,30 @@
+{
+  "customers" : [{
+	  "customerNumber" : 1,
+	  "customerName" : "Bob",
+	  "accounts" : [{
+		  "accountNumber" : 101,
+		  "isCurrentAccount" : true
+	  },{
+		  "accountNumber" : 102,
+		  "isCurrentAccount" : false
+    }]
+  },{
+	  "customerNumber" : 2,
+	  "customerName" : "Marry",
+	  "accounts" : [{
+		  "accountNumber" : 201,
+		  "isCurrentAccount" : true
+    }]
+  },{
+	  "customerNumber" : 3,
+	  "customerName" : "Eve",
+	  "accounts" : [{
+		  "accountNumber" : 301,
+		  "isCurrentAccount" : false
+    }]
+  }],
+  "related" : {
+	  "1" : [2]
+  }
+}

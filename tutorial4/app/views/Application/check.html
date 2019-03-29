@@ -1,0 +1,55 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<div>
+    <h1 class="name"><a href="/">Best Bank</a></h1>
+</div>
+
+#{ifErrors}
+    <div>
+        <span color="red">All fields are required!</span>
+    </div>
+#{/ifErrors}
+
+#{form @Application.postAccountAndCustomer()}
+<div>
+    <strong>Select a customer:</strong>
+    #{if customers}
+        #{select 'customerId', items:customers, valueProperty:'id', labelProperty:'customerName', id:'customerId' /}
+    #{/if}
+    #{else}
+    <div>
+        Unfortunately, there are no customers in the database.
+    </div>
+    #{/else}
+</div>
+
+<div>
+    <strong>Select an account:</strong>
+    #{if accounts}
+        #{select 'accountId', items:accounts, valueProperty:'id', labelProperty:'accountNumber', id:'accountId' /}
+    #{/if}
+    #{else}
+        <div>
+            Unfortunately, there are no accounts in the database.
+        </div>
+    #{/else}
+</div>
+
+<div>
+    <input type="submit" value="Check" />
+</div>
+#{/form}
+
+
+#{if flash.success}
+<div>
+    <p style="color:green">${flash.success}</p>
+</div>
+#{/if}
+
+#{if flash.error}
+<div>
+    <p style="color:red">${flash.error}</p>
+</div>
+#{/if}
