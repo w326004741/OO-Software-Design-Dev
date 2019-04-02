@@ -1,0 +1,64 @@
+30 三月 2019 16:59:20,869 INFO  ~ Starting /Users/weichenwang/OO-Software-Design-Dev/Assignment2
+30 三月 2019 16:59:21,277 INFO  ~ Module docviewer is available (/Users/weichenwang/Documents/play1-1.5.2/modules/docviewer)
+30 三月 2019 16:59:21,708 WARN  ~ You're running Play! in DEV mode
+30 三月 2019 16:59:21,756 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+30 三月 2019 16:59:30,092 ERROR ~ Invalid route definition : v# Routes
+30 三月 2019 16:59:31,285 INFO  ~ HikariPool-1 - Starting...
+30 三月 2019 16:59:31,306 INFO  ~ HikariPool-1 - Start completed.
+30 三月 2019 16:59:31,319 INFO  ~ Connected to jdbc:h2:mem:play for default
+30 三月 2019 16:59:32,795 INFO  ~ Application 'Assignment2' is now started !
+30 三月 2019 16:59:49,452 WARN  ~ SQL Error: 42122, SQLState: 42S22
+30 三月 2019 16:59:49,452 ERROR ~ Column "CITYNAME" not found; SQL statement:
+select city0_.id as id1_3_, city0_2_.name as name2_3_, city0_1_.population as populati1_6_ from City city0_ inner join PopulatedPlace city0_1_ on city0_.id=city0_1_.id inner join Place city0_2_ on city0_.id=city0_2_.id where cityName=? limit ? [42122-196]
+30 三月 2019 17:00:48,740 INFO  ~ Restart: 1 classes changed, caused by: java.lang.UnsupportedOperationException: class redefinition failed: attempted to delete a method
+30 三月 2019 17:00:48,792 ERROR ~ Invalid route definition : v# Routes
+30 三月 2019 17:00:51,428 WARN  ~ SQL Error: 42122, SQLState: 42S22
+30 三月 2019 17:00:51,429 ERROR ~ Column "CITYNAME" not found; SQL statement:
+select city0_.id as id1_3_, city0_2_.name as name2_3_, city0_1_.population as populati1_6_ from City city0_ inner join PopulatedPlace city0_1_ on city0_.id=city0_1_.id inner join Place city0_2_ on city0_.id=city0_2_.id where cityName=? limit ? [42122-196]
+30 三月 2019 17:02:50,283 WARN  ~ SQL Error: 42122, SQLState: 42S22
+30 三月 2019 17:02:50,283 ERROR ~ Column "CITYNAME" not found; SQL statement:
+select city0_.id as id1_3_, city0_2_.name as name2_3_, city0_1_.population as populati1_6_ from City city0_ inner join PopulatedPlace city0_1_ on city0_.id=city0_1_.id inner join Place city0_2_ on city0_.id=city0_2_.id where cityName=? limit ? [42122-196]
+30 三月 2019 17:04:49,633 WARN  ~ SQL Error: 42122, SQLState: 42S22
+30 三月 2019 17:04:49,633 ERROR ~ Column "CITYNAME" not found; SQL statement:
+select city0_.id as id1_3_, city0_2_.name as name2_3_, city0_1_.population as populati1_6_ from City city0_ inner join PopulatedPlace city0_1_ on city0_.id=city0_1_.id inner join Place city0_2_ on city0_.id=city0_2_.id where cityName=? limit ? [42122-196]
+30 三月 2019 17:12:53,232 INFO  ~ Restart: 1 classes changed, caused by: java.lang.UnsupportedOperationException: class redefinition failed: attempted to add a method
+30 三月 2019 17:12:53,269 ERROR ~ Invalid route definition : v# Routes
+30 三月 2019 17:12:55,246 WARN  ~ SQL Error: 22001, SQLState: 22001
+30 三月 2019 17:12:55,247 ERROR ~ Value too long for column "CAPITAL BINARY(255)": "X'aced00057372000b6d6f64656c732e436974798e505a100a4dae11020000787200156d6f64656c732e506f70756c61746564506c616365a4520efc2d401f6a... (926)"; SQL statement:
+insert into Country (capital, id) values (?, ?) [22001-196]
+30 三月 2019 17:12:55,249 WARN  ~ SQL Error: 23505, SQLState: 23505
+30 三月 2019 17:12:55,249 ERROR ~ Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.PLACE(ID)"; SQL statement:
+insert into Place (name, id) values (?, ?) [23505-196]
+30 三月 2019 17:13:41,684 INFO  ~ Restart: Signature change !
+30 三月 2019 17:13:41,718 ERROR ~ Invalid route definition : v# Routes
+30 三月 2019 17:13:43,948 WARN  ~ SQL Error: 22001, SQLState: 22001
+30 三月 2019 17:13:43,949 ERROR ~ Value too long for column "CAPITAL BINARY(255)": "X'aced00057372000b6d6f64656c732e436974798e505a100a4dae11020000787200156d6f64656c732e506f70756c61746564506c616365a4520efc2d401f6a... (926)"; SQL statement:
+insert into Country (capital, id) values (?, ?) [22001-196]
+30 三月 2019 17:13:43,951 WARN  ~ SQL Error: 23505, SQLState: 23505
+30 三月 2019 17:13:43,951 ERROR ~ Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.PLACE(ID)"; SQL statement:
+insert into Place (name, id) values (?, ?) [23505-196]
+30 三月 2019 17:13:51,461 INFO  ~ Restart: 1 classes changed, caused by: java.lang.UnsupportedOperationException: class redefinition failed: attempted to delete a method
+30 三月 2019 17:13:51,494 ERROR ~ Invalid route definition : v# Routes
+30 三月 2019 17:13:51,688 WARN  ~ SQL Error: 22001, SQLState: 22001
+30 三月 2019 17:13:51,688 ERROR ~ Value too long for column "CAPITAL BINARY(255)": "X'aced00057372000b6d6f64656c732e436974798e505a100a4dae11020000787200156d6f64656c732e506f70756c61746564506c616365a4520efc2d401f6a... (926)"; SQL statement:
+insert into Country (capital, id) values (?, ?) [22001-196]
+30 三月 2019 17:14:27,266 INFO  ~ Restart: Signature change !
+30 三月 2019 17:14:27,302 ERROR ~ Invalid route definition : v# Routes
+30 三月 2019 17:14:37,987 INFO  ~ Restart: 1 classes changed, caused by: java.lang.UnsupportedOperationException: class redefinition failed: attempted to add a method
+30 三月 2019 17:14:38,004 ERROR ~ Invalid route definition : v# Routes
+30 三月 2019 17:16:27,744 INFO  ~ Restart: Signature change !
+30 三月 2019 17:16:27,785 ERROR ~ Invalid route definition : v# Routes
+30 三月 2019 17:16:29,253 WARN  ~ SQL Error: 22001, SQLState: 22001
+30 三月 2019 17:16:29,253 ERROR ~ Value too long for column "CAPITAL BINARY(255)": "X'aced00057372000b6d6f64656c732e436974798e505a100a4dae11020000787200156d6f64656c732e506f70756c61746564506c616365a4520efc2d401f6a... (926)"; SQL statement:
+insert into Country (capital, id) values (?, ?) [22001-196]
+30 三月 2019 17:16:29,254 WARN  ~ SQL Error: 23505, SQLState: 23505
+30 三月 2019 17:16:29,255 ERROR ~ Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.PLACE(ID)"; SQL statement:
+insert into Place (name, id) values (?, ?) [23505-196]
+30 三月 2019 17:18:25,948 WARN  ~ SQL Error: 22001, SQLState: 22001
+30 三月 2019 17:18:25,949 ERROR ~ Value too long for column "CAPITAL BINARY(255)": "X'aced00057372000b6d6f64656c732e436974798e505a100a4dae11020000787200156d6f64656c732e506f70756c61746564506c616365a4520efc2d401f6a... (357)"; SQL statement:
+insert into Country (capital, id) values (?, ?) [22001-196]
+30 三月 2019 17:18:25,952 WARN  ~ SQL Error: 23505, SQLState: 23505
+30 三月 2019 17:18:25,952 ERROR ~ Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.PLACE(ID)"; SQL statement:
+insert into Place (name, id) values (?, ?) [23505-196]
+30 三月 2019 17:18:41,043 INFO  ~ Restart: Signature change !
+30 三月 2019 17:18:41,073 ERROR ~ Invalid route definition : v# Routes
