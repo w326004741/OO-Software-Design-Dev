@@ -82,13 +82,13 @@ public class CountryLoader extends Controller {
             if (!(countriesJSON.has("name") && countriesJSON.get("name") instanceof String))
                 throw new DataFormatException("All countries must be name.", data);
 
-//            if (!(countriesJSON.has("capital") && countriesJSON.get("capital") instanceof Integer)) {
-//                throw new DataFormatException("All countries must be capital.", data);
-//            }
+            if (!(countriesJSON.has("capital") && countriesJSON.get("capital") instanceof Integer)) {
+                throw new DataFormatException("All countries must be capital.", data);
+            }
 
             Integer countryId = countriesJSON.getInt("id");
             String countryName = countriesJSON.getString("name");
-//            Integer countriesCapitalId = countriesJSON.getInt("capital");
+            Integer countryCapitalId = countriesJSON.getInt("capital");
 //            System.out.println(countriesId, countriesName, countriesCapitalId);
 
             // id != Id， must capital Id
@@ -98,15 +98,14 @@ public class CountryLoader extends Controller {
             System.out.println("countryId: " + countryId);
             System.out.println("countryName: " + countryName);
 
+            City capital = null;
             Country country = new Country(countryId, countryName);
-            // Error: PersistenceException occurred : org.hibernate.PersistentObjectException: detached entity passed to persist: models.Country
-            country.save();
+//            country.save();
 
 //            City capital = null;
             // countriesCapital 的type是city 不是 Integer
 //            Country country = new Country(countryId, countryName);
 //            country.save();
-
 
             //cities JSON Array 内部数组
             if (countriesJSON.has("cities") && countriesJSON.get("cities") instanceof JSONArray) {
@@ -140,41 +139,47 @@ public class CountryLoader extends Controller {
                     }
 
                     City city = new City(citiesId, citiesName, citiesPopulation);
-                    city.save();
-//                    country.cities.put(citiesId, city); // 代替 putCity方法：cities.put(city.getId, city)
-//                    if (countriesCapitalId == citiesId) {
-//                        country.cities.put(citiesId, capital);
-//                    }
+                    city.save(); // city save into database done
+
+                    country.cities.put(citiesId, city);
+
+                    // countryCapitalId as byCityId, if capitaId = cityId,
+                    capital = City.find("byCityId", countryCapitalId).first();
+                    country.capital = capital;  // set country capital
+                    country.save();  // save country capital into database
+
+                    System.out.println("capital id: " + country.capital);
+                    //country.cities.put(citiesId, city); // 代替 putCity方法：cities.put(city.getId, city)
 //                    country.save();
                 }
             }
         }
 
 //        // Now that we have all the countries, deal with borders
-//        if (data.has("bordering")) {
-//            JSONObject borderingJSON = data.getJSONObject("bordering");
-//            for (String k : borderingJSON.keySet()) {
-//                Integer countriesId = Integer.parseInt(k);
-//                Country country = Country.find("byId", countriesId).first();
-//
-//                if (null == country) {
-//                    throw new DataFormatException("There is no countries with Id " + countriesId, data);
-//                }
-//
-//                JSONArray borderingArray = borderingJSON.getJSONArray(k);
-//                for (int i = 0; i < borderingArray.length(); i++) {
-//                    Integer borderingCountriesNumber = borderingArray.getInt(i);
-//
-//                    Country country1 = Country.find("byId", borderingCountriesNumber).first();
-//
-//                    if (null == country1) {
-//                        throw new DataFormatException("There is no countries with Id " + countriesId, data);
-//                    }
-//
-//                    country.neighbor.put(borderingCountriesNumber, country1);
-//                }
-//
-//            }
-//        }
+        if (data.has("bordering")) {
+            JSONObject borderingJSON = data.getJSONObject("bordering");
+            for (String k : borderingJSON.keySet()) {
+                Integer countriesId = Integer.parseInt(k);
+                Country country = Country.find("byCountryId", countriesId).first();
+
+                if (null == country) {
+                    throw new DataFormatException("There is no countries with Id " + countriesId, data);
+                }
+
+                JSONArray borderingArray = borderingJSON.getJSONArray(k);
+                for (int i = 0; i < borderingArray.length(); i++) {
+                    Integer borderingCountriesNumber = borderingArray.getInt(i);
+
+                    Country country1 = Country.find("byCountryId", borderingCountriesNumber).first();
+
+                    if (null == country1) {
+                        throw new DataFormatException("There is no countries with Id " + countriesId, data);
+                    }
+
+                    country.neighbor.put(borderingCountriesNumber, country1);
+                }
+
+            }
+        }
     }
 }

@@ -20,7 +20,7 @@ public class Country extends Model {
     public Integer countryId;  // cannot be id, cuz The superclass Model already has Long id automatically generated
     public String name;
 
-    //    @OneToOne  // every country must have one capital. One-to-One Associations
+    @OneToOne  // every country must have one capital. One-to-One Associations
     public City capital;
 
     @OneToMany    // Country can have several Cities & each City has the one Country
@@ -38,8 +38,15 @@ public class Country extends Model {
         this.neighbor = new HashMap<Integer, Country>();
     }
 
+//    public Country(Integer countryId, String name, City capital) {
+//        this.countryId = countryId;
+//        this.name = name;
+//        this.capital = capital;
+//        this.cities = new HashMap<Integer, City>();
+//        this.neighbor = new HashMap<Integer, Country>();
+//    }
 
-//    public Country(final Integer id, String name, City capital) {
+    //    public Country(final Integer id, String name, City capital) {
 //        this.id = id;
 //        this.name = name;
 //        this.capital = capital;

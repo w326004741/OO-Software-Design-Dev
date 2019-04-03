@@ -2,10 +2,7 @@ package models;
 
 import play.db.jpa.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
  * @author Weichen Wang
@@ -14,6 +11,7 @@ import javax.persistence.ManyToOne;
  */
 
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class City extends Model {
 
     public Integer cityId;  // cannot be id, cuz The superclass Model already has Long id automatically generated
@@ -28,11 +26,4 @@ public class City extends Model {
         this.name = name;
         this.population = population;
     }
-
-    // Override Constructor
-//    public City(Integer id, String name, Integer population) {
-//        this.id = id;
-//        this.name = name;
-//        this.population = population;
-//    }
 }
