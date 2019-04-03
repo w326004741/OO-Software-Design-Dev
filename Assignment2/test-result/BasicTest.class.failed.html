@@ -1,17 +1,95 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-
-<testsuite failures="0" time="0.017" errors="1" skipped="0" tests="0" name="BasicTest">
-  <testcase classname="BasicTest" name="createAndRetrieveCountry" time="0.017">
-                        <error type="" message="A javax.persistence.PersistenceException has been caught, org.hibernate.PersistentObjectException: detached entity passed to persist: models.Country">
-        <![CDATA[
-          In /test/BasicTest.java, line 42
-          
-                      country.save(); :
-          
-        ]]>
-        </error>
-                  <system-err>
-            javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: models.Country
+<html>
+    <head>
+        <title>Test results for BasicTest.class</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style type="text/css">
+            body {
+                font-family: Arial, Sans;
+                margin: 0;
+                padding: 0;
+            }
+            table {
+                width: 100%;
+            }
+            #header {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            #results {
+                padding: 15px;
+            }
+            #header h1 {
+                margin-top: 0;
+            }
+            #header.success {
+                background: #81CF5A !important;
+            }
+            .passed span {
+                background: #81CF5A !important;
+                padding: 3px 5px;
+            }
+            #header.failed {
+                background: #EF6868 !important;
+            }
+            .failed span {
+                background: #EF6868 !important;
+                padding: 3px 5px;
+            }
+            table .source {
+                margin-top: 10px;
+            }
+            table .source span {
+                color: #fff;
+                font-size: 85%;
+                padding: 1px 3px;
+                background: #666;
+            }
+            table .sourceLine {
+                border-left: 3px solid #c00;
+                padding: 4px 3px;
+                color: #000;
+                font-size: 85%;
+                margin-bottom: 10px;
+            }
+            .error {
+                color: #c00;
+            }
+            table td {
+                padding: 5px 0;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div id="header" class="block failed">
+            <h1>
+                BasicTest.class
+            </h1>
+            <p>
+                FAILED
+            </p>
+        </div>
+        
+        <div id="results">
+            <table>
+                                <tr>
+                    <td width="20%" class="failed" valign="top">
+                        <span>createAndRetrieveCountry</span>
+                    </td>
+                    <td class="error" valign="top">
+                                                <strong>A javax.persistence.PersistenceException has been caught, org.hibernate.PersistentObjectException: detached entity passed to persist: models.Country</strong>
+                                                <div class="source">
+                            <span>In /test/BasicTest.java, line 42 :</span>
+                        </div>
+                        <div class="sourceLine">
+                            <span>
+                                
+                                            country.save();
+                                
+                            </span>
+                        </div>
+                                                                        <a href="#" onclick="toggle_trace(this); return false;">Show trace</a>
+                        <pre data-role="trace">javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: models.Country
 	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:154)
 	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
 	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188)
@@ -73,8 +151,14 @@ Caused by: org.hibernate.PersistentObjectException: detached entity passed to pe
 	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:62)
 	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:800)
 	... 52 more
-
-          </system-err>  
-        }
-            </testcase>
-</testsuite>
+</pre>
+                                                                                            </td>
+                    <td width="5%" align="right" class="time" valign="top">
+                        17 ms
+                    </td>
+                </tr>
+                            </table>
+        </div>
+        
+    </body>
+</html>

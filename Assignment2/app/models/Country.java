@@ -3,6 +3,7 @@ package models;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import java.util.HashMap;
@@ -15,7 +16,7 @@ import java.util.Map;
  */
 @Entity
 public class Country extends Model {
-
+    @Id
     public Integer id;
     public String name;
 
