@@ -22,8 +22,8 @@
             </tr>
             #{list items:countries, as:'country'}
                 <tr>
+                    <td>${country.countryId}</td>
                     <td>${country.name}</td>
-                *{<td>${country.currentAccount}</td>}*
                 </tr>
             #{/list}
         </table>
@@ -37,31 +37,31 @@
 </div>
 
 
-*{<div>}*
-*{<h2>Customers</h2>}*
-*{#{if customers}}*
-*{<div>}*
-*{There are <strong>${customers.size()}</strong> accounts in the database.}*
+<div>
+    <h2>Cities</h2>
+#{if cities}
+    <div>
+        There are <strong>${cities.size()}</strong> cities in the database.
 
-*{<table style="width:100%">}*
-*{<tr>}*
-*{<th>Customer Number</th>}*
-*{<th>Name</th>}*
-*{<th>Accounts</th>}*
-*{</tr>}*
-*{#{list items:customers, as:'customer'}}*
-*{<tr>}*
-*{<td>${customer.customerNumber}</td>}*
-*{<td>${customer.customerName}</td>}*
-*{<td>${customer.accounts.size()}</td>}*
-*{</tr>}*
-*{#{/list}}*
-*{</table>}*
-*{</div>}*
-*{#{/if}}*
-*{#{else}}*
-*{<div>}*
-*{Unfortunately, there are no customers in the database.}*
-*{</div>}*
-*{#{/else}}*
-*{</div>}*
+        <table style="width:100%">
+            <tr>
+                <th>City ID</th>
+                <th>City Name</th>
+                <th>City Population</th>
+            </tr>
+            #{list items:cities, as:'city'}
+                <tr>
+                    <td>${city.cityId}</td>
+                    <td>${city.name}</td>
+                    <td>${city.population}</td>
+                </tr>
+            #{/list}
+        </table>
+    </div>
+#{/if}
+#{else}
+    <div>
+        Unfortunately, there are no customers in the database.
+    </div>
+#{/else}
+</div>

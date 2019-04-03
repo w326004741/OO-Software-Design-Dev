@@ -92,7 +92,7 @@ public class CountryLoader extends Controller {
 //            System.out.println(countriesId, countriesName, countriesCapitalId);
 
             // id != Id， must capital Id
-            if (null != Country.find("Id", countryId).first())
+            if (null != Country.find("byCountryId", countryId).first())
                 throw new DataFormatException("There is already an existing countries with id " + countryId, data);
 
             System.out.println("countryId: " + countryId);
@@ -109,40 +109,45 @@ public class CountryLoader extends Controller {
 
 
             //cities JSON Array 内部数组
-//            if (countriesJSON.has("cities") && countriesJSON.get("cities") instanceof JSONArray) {
-//                /**如果是，拿数组*/
-//                JSONArray citiesArray = countriesJSON.getJSONArray("cities");
-//                /**遍历拿数组内容*/
-//                for (int j = 0; j < citiesArray.length(); j++) {
-//                    JSONObject citiesJSON = citiesArray.getJSONObject(j);
-//
-//                    if (!citiesJSON.has("id") && citiesJSON.get("id") instanceof Integer) {
-//                        throw new DataFormatException("Missing cities id for countries " + countriesName, data);
-//                    }
-//                    if (!citiesJSON.has("name") && citiesJSON.get("name") instanceof String) {
-//                        throw new DataFormatException("Missing cities name for countries " + countriesName, data);
-//                    }
-//                    if (!citiesJSON.has("population") && citiesJSON.get("population") instanceof Integer) {
-//                        throw new DataFormatException("Missing cities population for countries " + countriesName, data);
-//                    }
-//
-//                    Integer citiesId = citiesJSON.getInt("id");
-//                    String citiesName = citiesJSON.getString("name");
-//                    Integer citiesPopulation = citiesJSON.getInt("population");
-//
-//                    if (null != City.find("Id", citiesId).first()) {
-//                        throw new DataFormatException("There is already an existing cities with Id " + citiesId, data);
-//                    }
-//
-//                    City city = new City(citiesId, citiesName, citiesPopulation);
-//                    city.save();
+            if (countriesJSON.has("cities") && countriesJSON.get("cities") instanceof JSONArray) {
+                /**如果是，拿数组*/
+                JSONArray citiesArray = countriesJSON.getJSONArray("cities");
+                /**遍历拿数组内容*/
+                for (int j = 0; j < citiesArray.length(); j++) {
+                    JSONObject citiesJSON = citiesArray.getJSONObject(j);
+
+                    if (!citiesJSON.has("id") && citiesJSON.get("id") instanceof Integer) {
+                        throw new DataFormatException("Missing cities id for countries " + countryName, data);
+                    }
+                    if (!citiesJSON.has("name") && citiesJSON.get("name") instanceof String) {
+                        throw new DataFormatException("Missing cities name for countries " + countryName, data);
+                    }
+                    if (!citiesJSON.has("population") && citiesJSON.get("population") instanceof Integer) {
+                        throw new DataFormatException("Missing cities population for countries " + countryName, data);
+                    }
+
+                    Integer citiesId = citiesJSON.getInt("id");
+                    String citiesName = citiesJSON.getString("name");
+                    Integer citiesPopulation = citiesJSON.getInt("population");
+
+                    System.out.println(citiesId);
+                    System.out.println(citiesName);
+                    System.out.println(citiesPopulation);
+
+
+                    if (null != City.find("byCityId", citiesId).first()) {
+                        throw new DataFormatException("There is already an existing cities with Id " + citiesId, data);
+                    }
+
+                    City city = new City(citiesId, citiesName, citiesPopulation);
+                    city.save();
 //                    country.cities.put(citiesId, city); // 代替 putCity方法：cities.put(city.getId, city)
 //                    if (countriesCapitalId == citiesId) {
 //                        country.cities.put(citiesId, capital);
 //                    }
 //                    country.save();
-//                }
-//            }
+                }
+            }
         }
 
 //        // Now that we have all the countries, deal with borders

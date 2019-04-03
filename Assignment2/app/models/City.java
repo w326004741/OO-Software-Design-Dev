@@ -16,19 +16,23 @@ import javax.persistence.ManyToOne;
 @Entity
 public class City extends Model {
 
-    @Id
-    public Integer id;
+    public Integer cityId;  // cannot be id, cuz The superclass Model already has Long id automatically generated
     public String name;
     public Integer population;
 
     @ManyToOne   // Many Cities could be have One Countries
     public Country country;
 
-
-    // Override Constructor
-    public City(Integer id, String name, Integer population) {
-        this.id = id;
+    public City(Integer cityId, String name, Integer population) {
+        this.cityId = cityId;
         this.name = name;
         this.population = population;
     }
+
+    // Override Constructor
+//    public City(Integer id, String name, Integer population) {
+//        this.id = id;
+//        this.name = name;
+//        this.population = population;
+//    }
 }

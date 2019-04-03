@@ -16,8 +16,8 @@ import java.util.Map;
  */
 @Entity
 public class Country extends Model {
-    @Id
-    public Integer id;
+
+    public Integer countryId;  // cannot be id, cuz The superclass Model already has Long id automatically generated
     public String name;
 
     //    @OneToOne  // every country must have one capital. One-to-One Associations
@@ -31,13 +31,13 @@ public class Country extends Model {
     public Map<Integer, Country> neighbor; // Integer = id, bordering country,通过国家ID找到国家名字
     // One Country could be have one or many bordering country
 
-
-    public Country(Integer id, String name) {
-        this.id = id;
+    public Country(Integer countryId, String name) {
+        this.countryId = countryId;
         this.name = name;
         this.cities = new HashMap<Integer, City>();
         this.neighbor = new HashMap<Integer, Country>();
     }
+
 
 //    public Country(final Integer id, String name, City capital) {
 //        this.id = id;

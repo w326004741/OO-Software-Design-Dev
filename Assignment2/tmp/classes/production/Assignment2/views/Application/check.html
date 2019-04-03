@@ -1,0 +1,55 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<div>
+    <h1 class="name"><a href="/">Check Country & City</a></h1>
+</div>
+
+#{ifErrors}
+<div>
+    <span color="red">All fields are required!</span>
+</div>
+#{/ifErrors}
+
+#{form @Application.postCountryAndCity()}
+<div>
+    <strong>Select a Country:</strong>
+    #{if country}
+        #{select 'countriesId', items:countries, valueProperty:'id', labelProperty:'name', id:'countriesId' /}
+    #{/if}
+    #{else}
+        <div>
+            Unfortunately, there are no countries Id in the database.
+        </div>
+    #{/else}
+</div>
+
+<div>
+    <strong>Select an City:</strong>
+    #{if city}
+        #{select 'citiesId', items:cities, valueProperty:'id', labelProperty:'name', id:'citiesId' /}
+    #{/if}
+    #{else}
+        <div>
+            Unfortunately, there are no city in the database.
+        </div>
+    #{/else}
+</div>
+
+<div>
+    <input type="submit" value="Check"/>
+</div>
+#{/form}
+
+
+#{if flash.success}
+<div>
+    <p style="color:green">${flash.success}</p>
+</div>
+#{/if}
+
+#{if flash.error}
+<div>
+    <p style="color:red">${flash.error}</p>
+</div>
+#{/if}
