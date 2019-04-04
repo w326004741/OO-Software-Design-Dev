@@ -6,7 +6,7 @@
 </div>
 
 <div>
-    <a href="/">Check Account Owner</a> :: <a href="/loader">Load JSON</a>
+    <a href="/check">Journey Planner</a>:: <a href="/admin">Admin Area</a> :: <a href="/loader">Load JSON</a>
 </div>
 
 <div>
@@ -17,15 +17,17 @@
 
         <table style="width:100%">
             <tr>
-                <th>Country ID</th>
-                <th>Country Name</th>
-                <th>Capital</th>
+                <th>ID</th>
+                <th>Name</th>
+            *{<th>Capital</th>}*
             </tr>
             #{list items:countries, as:'country'}
                 <tr>
                     <td>${country.countryId}</td>
-                    <td>${country.name}</td>
-                    <td>${country.capital}</td>
+                    <td>
+                        <a href="@{controllers.Application.show(country.countryId)}">${country.name}</a>
+                    </td>
+                *{<td>${country.capital}</td>}*
                 </tr>
             #{/list}
         </table>
@@ -39,31 +41,31 @@
 </div>
 
 
-<div>
-    <h2>Cities</h2>
-#{if cities}
-    <div>
-        There are <strong>${cities.size()}</strong> cities in the database.
+*{<div>}*
+*{<h2>Cities</h2>}*
+*{#{if cities}}*
+*{<div>}*
+*{There are <strong>${cities.size()}</strong> cities in the database.}*
 
-        <table style="width:100%">
-            <tr>
-                <th>City ID</th>
-                <th>City Name</th>
-                <th>City Population</th>
-            </tr>
-            #{list items:cities, as:'city'}
-                <tr>
-                    <td>${city.cityId}</td>
-                    <td>${city.name}</td>
-                    <td>${city.population}</td>
-                </tr>
-            #{/list}
-        </table>
-    </div>
-#{/if}
-#{else}
-    <div>
-        Unfortunately, there are no customers in the database.
-    </div>
-#{/else}
-</div>
+*{<table style="width:100%">}*
+*{<tr>}*
+*{<th>City ID</th>}*
+*{<th>City Name</th>}*
+*{<th>City Population</th>}*
+*{</tr>}*
+*{#{list items:cities, as:'city'}}*
+*{<tr>}*
+*{<td>${city.cityId}</td>}*
+*{<td>${city.name}</td>}*
+*{<td>${city.population}</td>}*
+*{</tr>}*
+*{#{/list}}*
+*{</table>}*
+*{</div>}*
+*{#{/if}}*
+*{#{else}}*
+*{<div>}*
+*{Unfortunately, there are no customers in the database.}*
+*{</div>}*
+*{#{/else}}*
+*{</div>}*

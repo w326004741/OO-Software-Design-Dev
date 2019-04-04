@@ -5,6 +5,8 @@
 # Home page  From Controller Folder: /app/controllers/Application.java
 GET     /                                       Application.index
 GET		/loader						            CountryLoader.loader
+GET     /check                                  Application.check
+GET     /show                                  Application.show
 
 # Import CRUD routes
 *      /admin                                   module:crud

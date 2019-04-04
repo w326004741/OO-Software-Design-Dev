@@ -13,5 +13,17 @@ public class ApplicationTest extends FunctionalTest {
         assertContentType("text/html", response);
         assertCharset(play.Play.defaultWebEncoding, response);
     }
-    
+
+    @Test
+    public void testThatLoaderPageWork() {
+        Response response = GET("/loader");
+        assertIsOk(response);
+        assertContentType("text/html", response);
+        assertCharset(play.Play.defaultWebEncoding, response);
+    }
+
+    @Test
+    public void testThatPlannerPageWork() {
+
+    }
 }

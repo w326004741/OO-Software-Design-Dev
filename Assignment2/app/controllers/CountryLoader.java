@@ -89,14 +89,10 @@ public class CountryLoader extends Controller {
             Integer countryId = countriesJSON.getInt("id");
             String countryName = countriesJSON.getString("name");
             Integer countryCapitalId = countriesJSON.getInt("capital");
-//            System.out.println(countriesId, countriesName, countriesCapitalId);
 
             // id != Id， must capital Id
             if (null != Country.find("byCountryId", countryId).first())
                 throw new DataFormatException("There is already an existing countries with id " + countryId, data);
-
-            System.out.println("countryId: " + countryId);
-            System.out.println("countryName: " + countryName);
 
             City capital = null;
             Country country = new Country(countryId, countryName);
@@ -129,10 +125,6 @@ public class CountryLoader extends Controller {
                     String citiesName = citiesJSON.getString("name");
                     Integer citiesPopulation = citiesJSON.getInt("population");
 
-                    System.out.println(citiesId);
-                    System.out.println(citiesName);
-                    System.out.println(citiesPopulation);
-
 
                     if (null != City.find("byCityId", citiesId).first()) {
                         throw new DataFormatException("There is already an existing cities with Id " + citiesId, data);
@@ -148,9 +140,7 @@ public class CountryLoader extends Controller {
                     country.capital = capital;  // set country capital
                     country.save();  // save country capital into database
 
-                    System.out.println("capital id: " + country.capital);
                     //country.cities.put(citiesId, city); // 代替 putCity方法：cities.put(city.getId, city)
-//                    country.save();
                 }
             }
         }
@@ -177,6 +167,9 @@ public class CountryLoader extends Controller {
                     }
 
                     country.neighbor.put(borderingCountriesNumber, country1);
+                    country.save();
+//                    country.neighbor.values();
+//                    System.out.println("Country Bordering Value:" + country.neighbor.values().size());
                 }
 
             }

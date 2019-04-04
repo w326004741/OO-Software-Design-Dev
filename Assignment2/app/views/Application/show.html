@@ -1,0 +1,70 @@
+#{extends 'main.html' /}
+#{set title:'Country Details' /}
+
+<div>
+    <h1><a href="/">World Atlas with Journey Planner</a></h1>
+</div>
+
+<div>
+    <a href="/check">Journey Planner</a>:: <a href="/admin">Admin Area</a> :: <a href="/loader">Load JSON</a>
+</div>
+
+
+<div>
+    <h2>${country.name}</h2>
+    <p>Capital: <strong>${country.capital.name}</strong></p>
+    <p>Population: <strong>${country.capital.population}</strong></p>
+
+</div>
+
+<div>
+    <h2>Bordering Countries</h2>
+#{if neighbor}
+    <div>
+        There are <strong>${neighbor.size()}</strong> bordering countries to <strong>${country.name}</strong>.
+    </div>
+
+    <table style="width: 100%">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Population</th>
+        </tr>
+        #{list items:neighbor, as:'neighbor'}
+            <tr>
+                <td>${neighbor.value.countryId}</td>
+                <td><a href="@{controllers.Application.show(neighbor.value.countryId)}">${neighbor.value.name}</a></td>
+                <td>${neighbor.value.capital.population}</td>
+            </tr>
+        #{/list}
+    </table>
+</div>
+#{/if}
+#{else }
+<div>
+    Unfortunately, there are no bordering countries to ${country.name}.
+</div>
+#{/else}
+
+<div>
+#{if cities }
+    <div>
+        There are <strong>${cities.size()}</strong> cities in ${neighbor.value.name}.
+    </div>
+
+    <table style="width: 100%">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Population</th>
+        </tr>
+        #{list items:cities, as:'cities'}
+            <tr>
+                <td>${cities.value.cityId}</td>
+                <td>${cities.value.name}</td>
+                <td>${cities.value.population}</td>
+            </tr>
+        #{/list}
+    </table>
+#{/if}
+</div>

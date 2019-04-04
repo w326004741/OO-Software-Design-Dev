@@ -11,23 +11,22 @@
 </div>
 #{/ifErrors}
 
-#{form @Application.postCountryAndCity()}
-<div>
-    <strong>Select a Country:</strong>
-    #{if country}
-        #{select 'countriesId', items:countries, valueProperty:'id', labelProperty:'name', id:'countriesId' /}
-    #{/if}
-    #{else}
-        <div>
-            Unfortunately, there are no countries Id in the database.
-        </div>
-    #{/else}
-</div>
-
+#{form @Application.planJourney()}
+*{<div>}*
+*{<strong>Select a Country:</strong>}*
+*{#{if countries}}*
+*{#{select 'countriesId', items:countries, valueProperty:'id', labelProperty:'name', id:'countriesId' /}}*
+*{#{/if}}*
+*{#{else}}*
+*{<div>}*
+*{Unfortunately, there are no countries Id in the database.}*
+*{</div>}*
+*{#{/else}}*
+*{</div>}*
 <div>
     <strong>Select an City:</strong>
-    #{if city}
-        #{select 'citiesId', items:cities, valueProperty:'id', labelProperty:'name', id:'citiesId' /}
+    #{if countries}
+        #{select 'countryName', items:countries, valueProperty:'name', labelProperty:'name', id:'countryName' /}
     #{/if}
     #{else}
         <div>
@@ -35,6 +34,19 @@
         </div>
     #{/else}
 </div>
+
+<div>
+    <strong>Select an City:</strong>
+    #{if cities}
+        #{select 'startCityId', items:cities, valueProperty:'id', labelProperty:'cityId', id:'startCityId' /}
+    #{/if}
+    #{else}
+        <div>
+            Unfortunately, there are no city in the database.
+        </div>
+    #{/else}
+</div>
+
 
 <div>
     <input type="submit" value="Check"/>

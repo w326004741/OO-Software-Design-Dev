@@ -2,10 +2,7 @@ package models;
 
 import play.db.jpa.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +24,7 @@ public class Country extends Model {
     public Map<Integer, City> cities; // HashMap 是无序的  Integer = id
     // One Country could be have one or mang cities
 
-    @OneToMany     // Country can have several neighbor country & each neighbor country has the one Country
+    @ManyToMany    // Country can have several neighbor country & each neighbor country has the one Country
     public Map<Integer, Country> neighbor; // Integer = id, bordering country,通过国家ID找到国家名字
     // One Country could be have one or many bordering country
 
