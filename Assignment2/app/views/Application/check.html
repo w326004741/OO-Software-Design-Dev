@@ -2,56 +2,58 @@
 #{set title:'Home' /}
 
 <div>
-    <h1 class="name"><a href="/">Check Country & City</a></h1>
+    <h1 class="name"><a href="/">World Atlas with Journey Planner</a></h1>
 </div>
 
-#{ifErrors}
 <div>
-    <span color="red">All fields are required!</span>
+    <a href="/check">Journey Planner</a>:: <a href="/admin">Admin Area</a> :: <a href="/loader">Load JSON</a>
 </div>
+
+<div>
+    <h2></h2>
+#{ifErrors}
+    <div>
+        <span color="red">All fields are required!</span>
+    </div>
 #{/ifErrors}
 
 #{form @Application.planJourney()}
-*{<div>}*
-*{<strong>Select a Country:</strong>}*
-*{#{if countries}}*
-*{#{select 'countriesId', items:countries, valueProperty:'id', labelProperty:'name', id:'countriesId' /}}*
-*{#{/if}}*
-*{#{else}}*
-*{<div>}*
-*{Unfortunately, there are no countries Id in the database.}*
-*{</div>}*
-*{#{/else}}*
-*{</div>}*
-<div>
-    <strong>Select an City:</strong>
-    #{if countries}
-        #{select 'countryName', items:countries, valueProperty:'name', labelProperty:'name', id:'countryName' /}
-    #{/if}
-    #{else}
-        <div>
-            Unfortunately, there are no city in the database.
-        </div>
-    #{/else}
-</div>
+    <div>
+    <p>
+        <strong>Select an start City:</strong>
+        #{if countries}
+            #{select 'fid', items:cities, valueProperty:'cityId', labelProperty:'name', id :'froId' /}
+        #{/if}
+        #{else}
+            <div>
+                Unfortunately, there are no city in the database.
+            </div>
+        #{/else}
+        </p>
+    </div>
 
-<div>
-    <strong>Select an City:</strong>
-    #{if cities}
-        #{select 'startCityId', items:cities, valueProperty:'id', labelProperty:'cityId', id:'startCityId' /}
-    #{/if}
-    #{else}
-        <div>
-            Unfortunately, there are no city in the database.
-        </div>
-    #{/else}
-</div>
+    <div>
+    <p>
+        <strong>Select an end City:</strong>
+        #{if cities}
+            #{select 'tid', items:cities, valueProperty:'cityId', labelProperty:'name', id:'toId' /}
+        #{/if}
+        #{else}
+            <div>
+                Unfortunately, there are no city in the database.
+            </div>
+        #{/else}
+        </p>
+    </div>
 
 
-<div>
-    <input type="submit" value="Check"/>
-</div>
+    <div>
+        <p>
+            <input type="submit" value="Plan Journey"/>
+        </p>
+    </div>
 #{/form}
+</div>
 
 
 #{if flash.success}
@@ -63,5 +65,17 @@
 #{if flash.error}
 <div>
     <p style="color:red">${flash.error}</p>
+</div>
+#{/if}
+
+#{if str}
+<div>
+    <ul>
+        #{list items: str, as:'leg' }
+
+            <li><strong>${leg}</strong></li>
+
+        #{/list}
+    </ul>
 </div>
 #{/if}

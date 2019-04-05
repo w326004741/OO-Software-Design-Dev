@@ -13,7 +13,7 @@
     <h2>Countries</h2>
 #{if countries}
     <div>
-        There are <strong>${countries.size()}</strong> countries in the database.
+        There are <strong>${countries.size()}</strong> countries in the atlas.
 
         <table style="width:100%">
             <tr>
@@ -39,33 +39,3 @@
     </div>
 #{/else}
 </div>
-
-
-*{<div>}*
-*{<h2>Cities</h2>}*
-*{#{if cities}}*
-*{<div>}*
-*{There are <strong>${cities.size()}</strong> cities in the database.}*
-
-*{<table style="width:100%">}*
-*{<tr>}*
-*{<th>City ID</th>}*
-*{<th>City Name</th>}*
-*{<th>City Population</th>}*
-*{</tr>}*
-*{#{list items:cities, as:'city'}}*
-*{<tr>}*
-*{<td>${city.cityId}</td>}*
-*{<td>${city.name}</td>}*
-*{<td>${city.population}</td>}*
-*{</tr>}*
-*{#{/list}}*
-*{</table>}*
-*{</div>}*
-*{#{/if}}*
-*{#{else}}*
-*{<div>}*
-*{Unfortunately, there are no customers in the database.}*
-*{</div>}*
-*{#{/else}}*
-*{</div>}*

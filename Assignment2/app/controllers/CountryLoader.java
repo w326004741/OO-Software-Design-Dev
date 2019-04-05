@@ -90,18 +90,12 @@ public class CountryLoader extends Controller {
             String countryName = countriesJSON.getString("name");
             Integer countryCapitalId = countriesJSON.getInt("capital");
 
-            // id != Id， must capital Id
             if (null != Country.find("byCountryId", countryId).first())
                 throw new DataFormatException("There is already an existing countries with id " + countryId, data);
 
             City capital = null;
             Country country = new Country(countryId, countryName);
-//            country.save();
-
-//            City capital = null;
-            // countriesCapital 的type是city 不是 Integer
-//            Country country = new Country(countryId, countryName);
-//            country.save();
+            country.save();
 
             //cities JSON Array 内部数组
             if (countriesJSON.has("cities") && countriesJSON.get("cities") instanceof JSONArray) {
@@ -125,27 +119,26 @@ public class CountryLoader extends Controller {
                     String citiesName = citiesJSON.getString("name");
                     Integer citiesPopulation = citiesJSON.getInt("population");
 
-
                     if (null != City.find("byCityId", citiesId).first()) {
                         throw new DataFormatException("There is already an existing cities with Id " + citiesId, data);
                     }
 
                     City city = new City(citiesId, citiesName, citiesPopulation);
+                    city.setCountry(country);
                     city.save(); // city save into database done
 
-                    country.cities.put(citiesId, city);
+                    country.getCities().put(citiesId, city);
 
-                    // countryCapitalId as byCityId, if capitaId = cityId,
-                    capital = City.find("byCityId", countryCapitalId).first();
-                    country.capital = capital;  // set country capital
-                    country.save();  // save country capital into database
+                    if (city.getCityId().equals(countryCapitalId)) {
+                        country.setCapital(city);  // set country capital
+                        country.save();
 
-                    //country.cities.put(citiesId, city); // 代替 putCity方法：cities.put(city.getId, city)
+                    }
                 }
             }
         }
 
-//        // Now that we have all the countries, deal with borders
+        // Now that we have all the countries, deal with borders
         if (data.has("bordering")) {
             JSONObject borderingJSON = data.getJSONObject("bordering");
             for (String k : borderingJSON.keySet()) {
@@ -166,12 +159,9 @@ public class CountryLoader extends Controller {
                         throw new DataFormatException("There is no countries with Id " + countriesId, data);
                     }
 
-                    country.neighbor.put(borderingCountriesNumber, country1);
+                    country.getNeighbor().put(borderingCountriesNumber, country1);
                     country.save();
-//                    country.neighbor.values();
-//                    System.out.println("Country Bordering Value:" + country.neighbor.values().size());
                 }
-
             }
         }
     }

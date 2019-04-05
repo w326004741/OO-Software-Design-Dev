@@ -29,11 +29,13 @@ public class BasicTest extends UnitTest {
         assertNotNull(city1);   // 判断city1 object 不为 null
 
         // Check if the City Name of found City matches with Galway
-        assertEquals("Dublin", city1.name);
+        assertEquals("Dublin", city1.getName());
     }
 
     @Test
     public void createAndRetrieveCountry() {
+
+//        City city = new City("Dublin").save();
 
         Country country = new Country(1, "Ireland");
 
@@ -43,7 +45,7 @@ public class BasicTest extends UnitTest {
 
 //        assertNotNull(country1);
 
-        assertEquals(country.name, "Ireland");
+        assertEquals(country.getName(), "Ireland");
 
 //        assertEquals(country.name, country1.name);
 
