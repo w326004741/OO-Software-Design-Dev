@@ -49,9 +49,6 @@ public class Application extends Controller {
         if (fid != null && tid != null) {
             str.add(PlannerProcessor.findWay(fid, tid).toString());
         }
-        for (String c : str) {
-            System.out.println(c);
-        }
         render(countries, cities, str);
     }
 

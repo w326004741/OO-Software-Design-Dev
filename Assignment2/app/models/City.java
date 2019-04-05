@@ -14,8 +14,8 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class City extends Model {
 
-    private Integer cityId;  // cannot be id, cuz The superclass Model already has Long id automatically generated
-   
+	private Integer cityId;  // cannot be id, cuz The superclass Model already has Long id automatically generated
+
 	private String name;
     private Integer population;
 
@@ -84,5 +84,5 @@ public class City extends Model {
 			return false;
 		return true;
 	}
-    
+
 }

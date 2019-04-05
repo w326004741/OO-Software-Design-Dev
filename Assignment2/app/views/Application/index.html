@@ -19,15 +19,16 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-            *{<th>Capital</th>}*
+                <th>Population</th>
             </tr>
             #{list items:countries, as:'country'}
                 <tr>
                     <td>${country.countryId}</td>
                     <td>
-                        <a href="@{controllers.Application.show(country.countryId)}">${country.name}</a>
+                        <strong><a
+                                href="@{controllers.Application.show(country.countryId)}">${country.name}</a></strong>
                     </td>
-                *{<td>${country.capital}</td>}*
+                    <td>${country.getPopulation()}</td>
                 </tr>
             #{/list}
         </table>

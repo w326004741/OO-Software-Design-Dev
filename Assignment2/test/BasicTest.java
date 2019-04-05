@@ -25,7 +25,7 @@ public class BasicTest extends UnitTest {
         // Find the city with "Name = Galway",只能是name,不能是CityName,因为City内没有cityName这个字段，只是继承了Place中的name
         City city1 = City.find("byName", "Dublin").first();
 
-        // Check that the account exists
+        // Check that the city exists
         assertNotNull(city1);   // 判断city1 object 不为 null
 
         // Check if the City Name of found City matches with Galway
@@ -34,20 +34,19 @@ public class BasicTest extends UnitTest {
 
     @Test
     public void createAndRetrieveCountry() {
-
-//        City city = new City("Dublin").save();
-
+        // create a country object
         Country country = new Country(1, "Ireland");
-
+        // Save to the database
         country.save();
+        // Find the country with "Name = Ireland",
+        Country country1 = Country.find("byName", "Ireland").first();
+        // Check that the country exists
+        assertNotNull(country1);
 
-//        Country country1 = Country.find("byName", "Ireland").first();
-
-//        assertNotNull(country1);
-
+        // Check if the Country Name of found Country matches with Ireland
         assertEquals(country.getName(), "Ireland");
 
-//        assertEquals(country.name, country1.name);
+        assertEquals(country.getName(), country1.getName());
 
     }
 

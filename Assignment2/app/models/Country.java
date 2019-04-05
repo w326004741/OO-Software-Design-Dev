@@ -14,9 +14,9 @@ import java.util.Map;
 @Entity
 public class Country extends Model {
 
-    private Integer countryId;  // cannot be id, cuz The superclass Model already has Long id automatically generated
+    public Integer countryId;  // cannot be id, cuz The superclass Model already has Long id automatically generated
 
-    private String name;
+    public String name;
 
     private int population;
 

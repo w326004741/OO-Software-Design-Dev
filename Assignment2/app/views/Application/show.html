@@ -33,7 +33,9 @@
         #{list items:neighborList, as:'countrys'}
             <tr>
                 <td>${countrys.countryId}</td>
-                <td><a href="@{controllers.Application.show(countrys.getCountryId())}">${countrys.name}</a></td>
+                <td><strong><a
+                        href="@{controllers.Application.show(countrys.getCountryId())}">${countrys.name}</a></strong>
+                </td>
                 <td>${countrys.population}</td>
             </tr>
         #{/list}
@@ -49,8 +51,7 @@
 
 #{if neighborCitiesList}
     <div>
-        There are <strong>${neighborCitiesList.size()}</strong> bordering cities in
-        <strong>${neighborList.name}</strong>.
+        There are <strong>${neighborCitiesList.size()}</strong> bordering cities in${neighborList.name}.
     </div>
 
     <table style="width: 100%">

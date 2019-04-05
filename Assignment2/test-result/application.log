@@ -1,10 +1,13 @@
-03 四月 2019 08:45:53,473 INFO  ~ Starting /Users/weichenwang/OO-Software-Design-Dev/Assignment2
-03 四月 2019 08:45:53,898 INFO  ~ Module crud is available (/Users/weichenwang/Documents/play1-1.5.2/modules/crud)
-03 四月 2019 08:45:53,898 INFO  ~ Module secure is available (/Users/weichenwang/Documents/play1-1.5.2/modules/secure)
-03 四月 2019 08:45:53,954 WARN  ~ You're running Play! in DEV mode
-03 四月 2019 08:45:54,036 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
-03 四月 2019 08:45:59,227 ERROR ~ Invalid route definition : v# Routes
-03 四月 2019 08:46:01,795 INFO  ~ HikariPool-1 - Starting...
-03 四月 2019 08:46:01,823 INFO  ~ HikariPool-1 - Start completed.
-03 四月 2019 08:46:01,833 INFO  ~ Connected to jdbc:h2:mem:play for default
-03 四月 2019 08:46:03,122 INFO  ~ Application 'Assignment2' is now started !
+05 四月 2019 16:06:14,003 INFO  ~ Starting /Users/weichenwang/OO-Software-Design-Dev/Assignment2
+05 四月 2019 16:06:14,436 INFO  ~ Module crud is available (/Users/weichenwang/Documents/play1-1.5.2/modules/crud)
+05 四月 2019 16:06:14,437 INFO  ~ Module secure is available (/Users/weichenwang/Documents/play1-1.5.2/modules/secure)
+05 四月 2019 16:06:14,486 WARN  ~ You're running Play! in DEV mode
+05 四月 2019 16:06:14,551 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+05 四月 2019 16:06:24,528 INFO  ~ HikariPool-1 - Starting...
+05 四月 2019 16:06:24,554 INFO  ~ HikariPool-1 - Start completed.
+05 四月 2019 16:06:24,574 INFO  ~ Connected to jdbc:h2:mem:play for default
+05 四月 2019 16:06:26,149 INFO  ~ Application 'Assignment2' is now started !
+05 四月 2019 16:06:57,460 INFO  ~ Restart: 1 classes changed, caused by: java.lang.UnsupportedOperationException: class redefinition failed: attempted to delete a method
+05 四月 2019 16:07:41,750 INFO  ~ Restart: Signature change !
+05 四月 2019 16:08:01,428 INFO  ~ Restart: Signature change !
+05 四月 2019 16:08:03,485 INFO  ~ Restart: 1 classes changed, caused by: java.lang.UnsupportedOperationException: class redefinition failed: attempted to delete a method

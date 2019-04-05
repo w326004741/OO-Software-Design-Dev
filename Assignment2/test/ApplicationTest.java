@@ -15,26 +15,12 @@ public class ApplicationTest extends FunctionalTest {
     }
 
     @Test
-    public void testThatLoaderPageWork() {
-        Response response = GET("/loader");
+    public void testThatPlannerPageWork() {
+        Response response = GET("/check");
         assertIsOk(response);
         assertContentType("text/html", response);
         assertCharset(play.Play.defaultWebEncoding, response);
     }
 
-//    @Test
-//    public void testThatPlannerPageWork() {
-//        Response response = GET("/check");
-//        assertIsOk(response);
-//        assertContentType("text/html", response);
-//        assertCharset(play.Play.defaultWebEncoding, response);
-//    }
-//
-//    @Test
-//    public void testThatShowPageWork() {
-//        Response response = GET("/show");
-//        assertIsOk(response);
-//        assertContentType("text/html", response);
-//        assertCharset(play.Play.defaultWebEncoding, response);
-//    }
+
 }
