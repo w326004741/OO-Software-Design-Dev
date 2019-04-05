@@ -41,9 +41,9 @@ play run   -> and then you can open browser enter: 'localhost' to access the web
 #### Controller Layer:
 - `Application.java & CountryLoader.java:` handles incoming HTTP requests and uses the model and view to build and return a response.
 - `Application.java: `
-    - `index()` method for Home Page and list all the countries in a table
-    -` show() `method for view countries properties, list of all of its bordering countries and List all the cities in the country and their properties.
-    - `check() & planJourney()` for Journey Planner
+    - `index()` method for Home Page and list all the countries in a table.
+    - `show() `method for view countries properties, list of all of its bordering countries and list all the cities in the country and their properties.
+    - `check() & planJourney()` for Journey Planner.
 - `CityController.java & CountryController.java:` administration web page.
 - `CountryLoader.java:` for upload JSON file and get data of JSON file.
 - `PlannerProcess.java:` is a utility class that provides algorithmic support for the Journey Planner.

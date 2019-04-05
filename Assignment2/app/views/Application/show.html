@@ -49,9 +49,9 @@
     </div>
 #{/else}
 
-#{if neighborCitiesList}
+#{if cityList}
     <div>
-        There are <strong>${neighborCitiesList.size()}</strong> bordering cities in${neighborList.name}.
+        There are <strong>${cityList.size()}</strong> cities in ${country.name}.
     </div>
 
     <table style="width: 100%">
@@ -60,11 +60,11 @@
             <th>Name</th>
             <th>Population</th>
         </tr>
-        #{list items:neighborCitiesList, as:'cities'}
+        #{list items:cityList, as:'cityList'}
             <tr>
-                <td>${cities.cityId}</td>
-                <td>${cities.name}</td>
-                <td>${cities.population}</td>
+                <td>${cityList.cityId}</td>
+                <td>${cityList.name}</td>
+                <td>${cityList.population}</td>
             </tr>
         #{/list}
     </table>
@@ -72,7 +72,7 @@
 #{/if}
 #{else}
     <div>
-        Unfortunately, there are no bordering cities to ${country.name}.
+        Unfortunately, there are no cities to ${country.name}.
     </div>
 #{/else}
 

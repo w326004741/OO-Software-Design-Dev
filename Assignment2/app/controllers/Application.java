@@ -25,6 +25,10 @@ public class Application extends Controller {
         // Math.toIntExact(countriesId)): Long to int
         Country country = Country.find("byCountryId", Math.toIntExact(countryId)).first();
 
+        // get cities of a country
+        List<City> cityList = new ArrayList<>(country.getCities().values());
+
+        // get cities of bordering country
         Map<Integer, Country> neighbor = country.getNeighbor();
         List<Country> neighborList = new ArrayList<Country>(neighbor.values());
         List<City> neighborCitiesList = new ArrayList<City>();
@@ -32,7 +36,7 @@ public class Application extends Controller {
             neighborCitiesList.addAll(cou.getCities().values());
         }
 
-        render(country, neighborList, neighborCitiesList);
+        render(country, neighborList, neighborCitiesList, cityList);
     }
 
 

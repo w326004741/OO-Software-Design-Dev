@@ -17,8 +17,8 @@ public class PlannerProcessor {
         StringBuffer str = new StringBuffer();
         City cfrom = City.find("byCityId", Math.toIntExact(fid)).first();
         City cto = City.find("byCityId", Math.toIntExact(tid)).first();
-        System.out.println("1: " + cfrom.getCountry());
-        System.out.println("2: " + cto.getCountry());
+        System.out.println("1: " + cfrom.getCountry().getName());
+        System.out.println("2: " + cto.getCountry().getName());
         if (cfrom.getCountry().equals(cto.getCountry())) {//国内坐巴士
             Bus bus = new Bus();
             bus.appenWay(cfrom, cto, str);
@@ -43,9 +43,8 @@ public class PlannerProcessor {
                 plane.appenWay(cfrom, cto.getCountry().getCapital(), str);
 
             } else {//出发点非首都,先做公交去首都再坐飞机去目的地国家首都
-
                 Bus bus = new Bus();
-                bus.appenWay(cfrom, cto.getCountry().getCapital(), str);
+                bus.appenWay(cfrom, cfrom.getCountry().getCapital(), str);
                 Plane plane = new Plane();
                 plane.appenWay(cfrom.getCountry().getCapital(), cto.getCountry().getCapital(), str);
 
