@@ -14,9 +14,9 @@ import java.util.Map;
 @Entity
 public class Country extends Model {
 
-    public Integer countryId;  // cannot be id, cuz The superclass Model already has Long id automatically generated
+    private Integer countryId;  // cannot be id, cuz The superclass Model already has Long id automatically generated
 
-    public String name;
+    private String name;
 
     private int population;
 
@@ -103,6 +103,7 @@ public class Country extends Model {
         return true;
     }
 
+    // country population
     public int getPopulation() {
         int p = 0;
         for (City c : cities.values()) {
@@ -114,23 +115,6 @@ public class Country extends Model {
     public void setPopulation(int population) {
         this.population = population;
     }
-
-
-//    public Country(Integer countryId, String name, City capital) {
-//        this.countryId = countryId;
-//        this.name = name;
-//        this.capital = capital;
-//        this.cities = new HashMap<Integer, City>();
-//        this.neighbor = new HashMap<Integer, Country>();
-//    }
-
-    //    public Country(final Integer id, String name, City capital) {
-//        this.id = id;
-//        this.name = name;
-//        this.capital = capital;
-//        this.cities = new HashMap<Integer, City>();
-//        this.neighbor = new HashMap<Integer, Country>();
-//    }
 
 
 }

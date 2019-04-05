@@ -1,88 +1,73 @@
-# CT548 OO Software Development - Assignment I
+# CT548 OO Software Development - Assignment II
+> Project: World Altas with Journey Planer with Play Framework      
+> Module: OO Software Development   
+> Lecturer: Dr UMAIR UL HASSAN      
+> ID: 18232813  
 
-__Deadline: Wednesday, April 3, 2019__
+> By: Weichen Wang
 
-## A web-based World Atlas with a Journey Planner
-Based on the description of Assignment 1, extend your code to create a
-web application with the functionality of a __world atlas__ with
-a journey planner.
-
-The basic functionality and travel rules remain the same as the Assignment 1,
-except that this assignment is an implementation of the world atlas using
-__Model-View-Controller__ design pattern.
-
-The web application must be implemented in __Java__ using __Play Framework 1.5.2__.
+## Overview
+The Assignment2 based on the Assignment1, extend Assignment1 code to a web application with the functionality of a world atlas with a journey planner. 
 
 
-#### Functional Requirements
+## How to use this project:
+1. Decompression the `Assignment2.zip`
+2. Enter your Terminal(for mac) or CMD(for windows), and following below:
 
-Users of the web-based World Atlas must be able to:
 ```
-1. List all the countries in a table.
-2. Select a country from above table, to view its properties:
-  * Its population and capital city.
-  * List of all of its bordering countries.
-  * List all the cities in the country and their properties.
-3. Plan a journey between _any_ two cities (i.e. display at least one
-  travel plan) as sequences of messages. For example:
+# Change directory to Assignment2 
+cd Assignment2
+
+# to resolve dependencies of required modules or libraries as specified in dependencies.yml
+play dependencies
+
+# to run the application
+play run   -> and then you can open browser enter: 'localhost' to access the webpage of this application.
 ```
+3. Other play commmands:
+* `play eclipsify` to generate file for Eclipse IDE
+* `play idealize` to generate files for IntellJ Idea IDE
+* `play test` to run the application in test mode
+* `play clean` to remove temporary files (compiled classes, uploads, etc)
+* `play help` to list all possible commands
 
-    1. Travel from Barcelona to Madrid by bus
-    2. Travel from Madrid to Berlin by plane
+## About Project:
+##### Model Layer: 
+- City.java & Country.java extends Model and add @Entity Annotation as a Entity Class, represent the underlying data structure and business logic of a Web application
+- GetWay.java: is an abstract class, internally defines an appendWay() method.
+- Bus.java, Train.java, Plane.java: There are three subclass that extends the GetWay Abstract class and Override the appendWay() method from GetWay Abstract Class in three class to inherit specific strategies. 
+- This implement a Concrete Strategy Pattern (GetWay, Bus, Train and Plane) and also implements a polymorphism.
 
-Administrators of the web-based World Atlas must be able to:
-```
-1. Login to the administration web-page.
-2. Load the JSON data about countries and cities.
-3. Manually create, update, and/or delete countries and cities.
-```
-#### Non-functional Requirements
-Same as Assignment 1, except the application on need to import JSON from the
-administration web-page.
+##### Controller Layer:
+- Application.java & CountryLoader.java: handles incoming HTTP requests and uses the model and view to build and return a response.
+- Application.java: 
+    - index() method for Home Page and list all the countries in a table
+    - show() method for view countries properties, list of all of its bordering countries and List all the cities in the country and their properties.
+    - check() & planJourney() for Journey Planner
+- CityController.java & CountryController.java: administration web page.
+- CountryLoader.java: for upload JSON file and get data of JSON file.
+- PlannerProcess.java: is a utility class that provides algorithmic support for the Journey Planner.
 
-#### Data Requirements
-Same as Assignment 1, except you do not need to provide the data for
-12 counties. Instead, you code will be tested with different combinations
-of counties and cities.
+##### View Layer:
+- /view/Application: provide the corresponding HTML page for the methods in Application.java. such as: index(), check(), show().
+- /view/CountryLoader: provide the corresponding HTML page for the loader() method in CountryLoader.java.
+
+##### Dependencies:
+- play
+- org.json -> json 20180813
+- play -> crud
+- play -> secure
+
+##### Detail of the database connection.
+- db = mem (for a transient in memory database (H2 in memory)) 
+
+##### Username and password for the administrator account.
+- Username: Weichen
+- Password: 12345
+
+    
 
 
-#### Design Requirements
-Same as Assignment 1, except following:
 
-1. The application must allow administrator to upload JSON data files to
- import the details countries and cities in bulk.
-2. The web-application must be implemented using Play Framework 1.5.2.
-3. The web-application must store its data (from Model layer) in a
- database (H2 or MySQL).
+ 
 
-## Submission Guidelines
-
-The assignment solution must be uploaded to the Blackboard.
-The solution must be delivered as a single archive (e.g. `zip`, `7z` or `tar.gz`) containing the following:
-
-* The complete folder of source code for the Play application, including Java,
- HTML, CSS, YAML and all other relevant files.
-  * Note: There is no need to include Play Framework with it.
-* Correct configuration, i.e. files `conf` folder, including
- dependencies.
-* A `README.md` file in project folder that describes your application for
- developers and users, including any instructions for running the application
- from source code, such as:
-   * Software and package dependencies
-   * Username and password for the administrator account.
-   * Detail of the database connection.
-
-### Evaluation
-
-The default way for us to test your assignment will be as follows:
-
-1. Setup the dependencies, as specified in your `README.md` file, using the
- `play dependencies` command in project folder.
-2. Start the application using `play run` command in project folder.
-3. Load the JSON data file using the administration web-page.
-4. Verify the correctness of the complete solution by manual testing and
- running unit tests from `test` folder .
-
-Note: Your source code __must compile and run__ from the project folder with
- all dependencies resolved either using the `conf/dependencies.yml` file or
- `.jar` files in the `lib` folder.
