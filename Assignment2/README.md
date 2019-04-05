@@ -12,7 +12,7 @@ The Assignment2 based on the Assignment1, extend Assignment1 code to a web appli
 
 ## How to use this project:
 1. Decompression the `Assignment2.zip`
-2. Enter your Terminal(for mac) or CMD(for windows), and following below:
+2. Enter your Terminal(for mac) or cmd(for windows), and following below:
 
 ```
 # Change directory to Assignment2 
@@ -32,36 +32,36 @@ play run   -> and then you can open browser enter: 'localhost' to access the web
 * `play help` to list all possible commands
 
 ## About Project:
-##### Model Layer: 
-- City.java & Country.java extends Model and add @Entity Annotation as a Entity Class, represent the underlying data structure and business logic of a Web application
-- GetWay.java: is an abstract class, internally defines an appendWay() method.
-- Bus.java, Train.java, Plane.java: There are three subclass that extends the GetWay Abstract class and Override the appendWay() method from GetWay Abstract Class in three class to inherit specific strategies. 
+#### Model Layer: 
+- `City.java & Country.java` extends Model and add @Entity Annotation as a Entity Class, represent the underlying data structure and business logic of a Web application
+- `GetWay.java:` is an abstract class, internally defines an appendWay() method.
+- `Bus.java, Train.java, Plane.java:` There are three subclass that extends the GetWay Abstract class and Override the appendWay() method from GetWay Abstract Class in three class to inherit specific strategies. 
 - This implement a Concrete Strategy Pattern (GetWay, Bus, Train and Plane) and also implements a polymorphism.
 
-##### Controller Layer:
-- Application.java & CountryLoader.java: handles incoming HTTP requests and uses the model and view to build and return a response.
-- Application.java: 
-    - index() method for Home Page and list all the countries in a table
-    - show() method for view countries properties, list of all of its bordering countries and List all the cities in the country and their properties.
-    - check() & planJourney() for Journey Planner
-- CityController.java & CountryController.java: administration web page.
-- CountryLoader.java: for upload JSON file and get data of JSON file.
-- PlannerProcess.java: is a utility class that provides algorithmic support for the Journey Planner.
+#### Controller Layer:
+- `Application.java & CountryLoader.java:` handles incoming HTTP requests and uses the model and view to build and return a response.
+- `Application.java: `
+    - `index()` method for Home Page and list all the countries in a table
+    -` show() `method for view countries properties, list of all of its bordering countries and List all the cities in the country and their properties.
+    - `check() & planJourney()` for Journey Planner
+- `CityController.java & CountryController.java:` administration web page.
+- `CountryLoader.java:` for upload JSON file and get data of JSON file.
+- `PlannerProcess.java:` is a utility class that provides algorithmic support for the Journey Planner.
 
-##### View Layer:
-- /view/Application: provide the corresponding HTML page for the methods in Application.java. such as: index(), check(), show().
-- /view/CountryLoader: provide the corresponding HTML page for the loader() method in CountryLoader.java.
+#### View Layer:
+- `/view/Application:` provide the corresponding HTML page for the methods in Application.java. such as: index(), check(), show().
+- `/view/CountryLoader:` provide the corresponding HTML page for the loader() method in CountryLoader.java.
 
-##### Dependencies:
+#### Dependencies:
 - play
 - org.json -> json 20180813
 - play -> crud
 - play -> secure
 
-##### Detail of the database connection.
-- db = mem (for a transient in memory database (H2 in memory)) 
+#### Detail of the database connection.
+- `db = mem` (for a transient in memory database (H2 in memory)) 
 
-##### Username and password for the administrator account.
+#### Username and password for the administrator account.
 - Username: Weichen
 - Password: 12345
 
