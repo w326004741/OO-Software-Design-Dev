@@ -7,7 +7,7 @@
 > By: Weichen Wang
 
 ## Overview
-The Assignment2 based on the Assignment1, extend Assignment1 code to a web application with the functionality of a world atlas with a journey planner. 
+The Assignment2 based on the Assignment1, extend Assignment1 code to a web application with the functionality of a world atlas with a journey planner. The JSON file is located in the project folder `(Assignment2/data.json)`, file name is data.json.
 
 
 ## How to use this project:

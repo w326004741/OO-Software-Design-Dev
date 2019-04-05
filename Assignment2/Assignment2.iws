@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="54af33d1-73ca-4428-8e7b-b27e33e1525d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Assignment2.iws" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment2.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../assignment_2.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../mavenassignment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mavenassignment/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mavenassignment/src/main/java/assigenmet1/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mavenassignment/src/main/java/assigenmet1/City.java" afterDir="false" />
@@ -53,7 +54,7 @@
           <entry key="HTML" value="27" />
           <entry key="JAVA" value="83" />
           <entry key="JSON" value="4" />
-          <entry key="Markdown" value="5" />
+          <entry key="Markdown" value="6" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="Properties" value="1" />
           <entry key="YAML" value="7" />
@@ -65,7 +66,7 @@
           <entry key="HTML" value="1394" />
           <entry key="JAVA" value="9044" />
           <entry key="JSON" value="75" />
-          <entry key="Markdown" value="2072" />
+          <entry key="Markdown" value="2078" />
           <entry key="PLAIN_TEXT" value="131" />
           <entry key="YAML" value="3" />
         </counts>
@@ -95,10 +96,14 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/application.conf">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1243">
-              <caret line="81" selection-start-line="81" selection-end-line="84" selection-end-column="8" />
+            <state relative-caret-position="576">
+              <caret line="77" column="1" lean-forward="true" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#840#846#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,32 +112,10 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="224">
-                <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+              <first_editor relative-caret-position="470">
+                <caret line="30" column="73" lean-forward="true" selection-start-line="30" selection-start-column="73" selection-end-line="30" selection-end-column="73" />
               </first_editor>
               <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/dependencies.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/Application.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="59" column="34" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#840#846#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -383,7 +366,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/weichenwang/OO-Software-Design-Dev/Assignment2/app/models/City.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554491036275" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554491594107" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Assignment2.ipr" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -430,12 +413,12 @@
       <workItem from="1554061212105" duration="32202000" />
       <workItem from="1554243404815" duration="33639000" />
       <workItem from="1554464743850" duration="7261000" />
-      <workItem from="1554472412025" duration="10591000" />
+      <workItem from="1554472412025" duration="11170000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92712000" />
+    <option name="totallyTimeSpent" value="93291000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -735,17 +718,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="59" column="34" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#840#846#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/Application/show.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -773,13 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/dependencies.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/OOP/Assignment2/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -797,11 +762,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/conf/dependencies.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="77" column="1" lean-forward="true" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#840#846#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="224">
-            <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+          <first_editor relative-caret-position="470">
+            <caret line="30" column="73" lean-forward="true" selection-start-line="30" selection-start-column="73" selection-end-line="30" selection-end-column="73" />
           </first_editor>
           <second_editor />
         </state>
