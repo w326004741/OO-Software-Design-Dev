@@ -70,12 +70,9 @@
 
 #{if str}
 <div>
-    <ul>
-        #{list items: str, as:'leg' }
+    #{list items: str, as:'leg' }
+        <pre><strong>${leg}</strong></pre>
+    #{/list}
 
-            <li><strong>${leg}</strong></li>
-
-        #{/list}
-    </ul>
 </div>
 #{/if}
